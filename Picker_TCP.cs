@@ -441,6 +441,16 @@ namespace TCP_LISTENER_Delta
                         SPDX[20] = Release_TMR; //Release_TMR
                         SPDX[54] = Hi;
 
+                        CONTROL_WRITE[0] = checkBox1.Checked;
+                        CONTROL_WRITE[1] = checkBox2.Checked;
+                        CONTROL_WRITE[2] = checkBox3.Checked;
+                        CONTROL_WRITE[3] = checkBox4.Checked;
+                        CONTROL_WRITE[4] = checkBox5.Checked;
+                        CONTROL_WRITE[5] = checkBox6.Checked;
+                        CONTROL_WRITE[6] = checkBox7.Checked;
+                        CONTROL_WRITE[7] = checkBox8.Checked;
+                        CONTROL_WRITE[8] = checkBox9.Checked;
+                        CONTROL_WRITE[9] = checkBox10.Checked;
                         //modbus.WriteMultipleCoils(147, Abool);
                         try
                         {
