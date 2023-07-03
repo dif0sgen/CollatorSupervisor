@@ -82,8 +82,8 @@ namespace TCP_LISTENER_Delta
         private Int32[] ACCX = new Int32[1];
         private Int32[] ACCY = new Int32[1];
         bool[] Abool = new bool[18];
-        private bool[] CONTROL = new bool[11];
-        private bool[] Mcontrol = new bool[11];
+        private bool[] CONTROL_WRITE = new bool[10];
+        private bool[] CONTROL_READ = new bool[10];
         private string[] files;
         private bool M1 = false;
         private bool M2 = false;
@@ -146,11 +146,11 @@ namespace TCP_LISTENER_Delta
             //bTimer.AutoReset = true;
             //bTimer.Enabled = true;
             this.Closing += new CancelEventHandler(this.Form_Listener_Closing);
-            btnUP.MouseUp += btnUP_Up;
-            btnUP.MouseDown += btnUP_Down;
+            //btnUP.MouseUp += btnUP_Up;
+            //btnUP.MouseDown += btnUP_Down;
             btnUP.MouseEnter += btnUp_ENTER;
-            btnDWN.MouseDown += btnDWN_Down;
-            btnDWN.MouseUp += btnDWN_Up;
+           // btnDWN.MouseDown += btnDWN_Down;
+           // btnDWN.MouseUp += btnDWN_Up;
             btnDWN.MouseEnter += btnDWN_ENTER;
             btnStart.MouseEnter += OnMouseEnterButton1;
             btnStart.MouseLeave += OnMouseLeaveButton1;
@@ -184,8 +184,8 @@ namespace TCP_LISTENER_Delta
         {
             if (modbus.Connected == true)
             {
-                CONTROL[5] = false;
-                CONTROL[6] = true;
+                //CONTROL[5] = false;
+                //CONTROL[6] = true;
             }
             else if (modbus.Connected == false)
             {
@@ -207,11 +207,11 @@ namespace TCP_LISTENER_Delta
                 {
                     if (motorSpeed > 0 & D[40] > 0 & D[42] > 0 & D[44] > 0 & D[46] > 0)
                     {
-                        CONTROL[5] = true;
+                        //CONTROL[5] = true;
                     }
                     else if (motorSpeed == 0 || D[40] == 0 || D[42] == 0 || D[44] == 0 || D[46] == 0)
                     {
-                        CONTROL[5] = false;
+                        //CONTROL[5] = false;
                         MessageBox.Show("Speed is 0, set higher value");
                     }
                 }
@@ -230,11 +230,11 @@ namespace TCP_LISTENER_Delta
             {
                 if (motorSpeed > 0 & D[40] > 0 & D[42] > 0 & D[44] > 0 & D[46] > 0)
                 {
-                    CONTROL[7] = true;
+                    //CONTROL[7] = true;
                 }
                 else if (motorSpeed == 0 || D[40] == 0 || D[42] == 0 || D[44] == 0 || D[46] == 0)
                 {
-                    CONTROL[7] = false;
+                    //CONTROL[7] = false;
                     MessageBox.Show("Speed is 0, set higher value");
                 }
             }
@@ -444,7 +444,7 @@ namespace TCP_LISTENER_Delta
                         //modbus.WriteMultipleCoils(147, Abool);
                         try
                         {
-                            modbus.WriteMultipleCoils(11, CONTROL); // WRITE ALL BITS
+                            modbus.WriteMultipleCoils(100, CONTROL_WRITE); // WRITE ALL BITS
                         }
 
                         catch (Exception ex)
@@ -462,8 +462,8 @@ namespace TCP_LISTENER_Delta
                         {
                            MessageBox.Show("Write mulriple registers: " + ex.Message);
                         }
-                        CONTROL[7] = false;// RESET "HOME" AFTER WRITING
-                        CONTROL[6] = false;// RESET "STOP" AFTER WRITING
+                        //CONTROL[7] = false;// RESET "HOME" AFTER WRITING
+                        //CONTROL[6] = false;// RESET "STOP" AFTER WRITING
                         if (check1 == true)
                         {
                             try
@@ -481,7 +481,7 @@ namespace TCP_LISTENER_Delta
                             //Thread.Sleep(milliseconds);
                             try
                             {
-                                Mcontrol = modbus.ReadCoils(11, 11);
+                                CONTROL_READ = modbus.ReadCoils(200, 10);
                                 M = modbus.ReadCoils(22, 6);
                             }
 
@@ -490,122 +490,186 @@ namespace TCP_LISTENER_Delta
                                 MessageBox.Show("Read bits MDBS: " + ex.Message);
                             }
 
-                            CONTROL[10] = Mcontrol[10];
-                            UP = Mcontrol[0];
-                            DOWN = Mcontrol[1];
-                            LEFT = Mcontrol[2];
-                            RIGHT = Mcontrol[3];
-                            START = Mcontrol[5];
-                            HOME = Mcontrol[8];
-                            Solenoid = Mcontrol[9];
-                            RightLim = M[0];
-                            LeftLim = M[1];
-                            UpLim = M[2];
-                            DownLim = M[3];
-                            PresLim = M[4];
-                            PapLim = M[5];
+                            //CONTROL[10] = Mcontrol[10];
+                            //UP = Mcontrol[0];
+                            //DOWN = Mcontrol[1];
+                            //LEFT = Mcontrol[2];
+                            //RIGHT = Mcontrol[3];
+                            //START = Mcontrol[5];
+                            //HOME = Mcontrol[8];
+                            //Solenoid = Mcontrol[9];
+                            //RightLim = M[0];
+                            //LeftLim = M[1];
+                            //UpLim = M[2];
+                            //DownLim = M[3];
+                            //PresLim = M[4];
+                            //PapLim = M[5];
                             //Thread.Sleep(milliseconds);
 
 
-                            if (UP == true) // GREEN UP
+                            if (CONTROL_READ[0] == true) // GREEN UP
                             {
-                                this.label28.BackColor = System.Drawing.Color.Green;
+                                this.label9.BackColor = System.Drawing.Color.Green;
                             }
-                            else if (UP == false) // STANDART UP
+                            else if (CONTROL_READ[0] == false) // STANDART UP
                             {
-                                this.label28.BackColor = System.Drawing.Color.White;
+                                this.label9.BackColor = System.Drawing.Color.White;
                             }
-                            if (DOWN == true) // GREEN DOWN
+                            if (CONTROL_READ[1] == true) // GREEN DOWN
                             {
-                                this.label29.BackColor = System.Drawing.Color.Green;
+                                this.label10.BackColor = System.Drawing.Color.Green;
                             }
-                            else if (DOWN == false) // STANDART DOWN
+                            else if (CONTROL_READ[1] == false) // STANDART DOWN
                             {
-                                this.label29.BackColor = System.Drawing.Color.White;
+                                this.label10.BackColor = System.Drawing.Color.White;
                             }
-                            if (START == true & HOME == false) // GREEN START, STANDART STOP, STANDART HOME
+                            if (CONTROL_READ[2] == true) // GREEN DOWN
                             {
-                                this.button1.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_23;
-                                this.button2.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_22;
-                                this.button3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_26;
+                                this.label17.BackColor = System.Drawing.Color.Green;
                             }
-                            if (START == false) // RED STOP, STANDART START,STANDART HOME
+                            else if (CONTROL_READ[2] == false) // STANDART DOWN
                             {
-                                this.button1.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_21;
-                                this.button2.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_24;
-                                this.button3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_26;
+                                this.label17.BackColor = System.Drawing.Color.White;
                             }
-                            if (HOME == true & START == false) // GREEN HOME, STANDART STOP, STANDART START
+                            if (CONTROL_READ[3] == true) // GREEN DOWN
                             {
-                                this.button2.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_22;
-                                this.button3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_27;
-                                this.button1.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_21;
+                                this.label18.BackColor = System.Drawing.Color.Green;
                             }
-                            if (InvokeRequired)
+                            else if (CONTROL_READ[3] == false) // STANDART DOWN
                             {
-                                Invoke(new Action(() =>
-                                {
-                                    if (tabControl1.Controls[0] == tabControl1.SelectedTab) // AUTO MODE ON
-                                        CONTROL[4] = true;
-                                    if (tabControl1.Controls[1] == tabControl1.SelectedTab) // AUTO MODE OFF
-                                        CONTROL[4] = false;
-                                    if (tabControl1.Controls[2] == tabControl1.SelectedTab) // AUTO MODE OFF
-                                        CONTROL[4] = false;
-                                }));
+                                this.label18.BackColor = System.Drawing.Color.White;
                             }
-                            else
+                            if (CONTROL_READ[4] == true) // GREEN DOWN
                             {
-                                if (tabControl1.Controls[0] == tabControl1.SelectedTab) // AUTO MODE ON
-                                    CONTROL[4] = true;
-                                if (tabControl1.Controls[1] == tabControl1.SelectedTab) // AUTO MODE OFF
-                                    CONTROL[4] = false;
-                                if (tabControl1.Controls[2] == tabControl1.SelectedTab) // AUTO MODE OFF
-                                    CONTROL[4] = false;
+                                this.label24.BackColor = System.Drawing.Color.Green;
                             }
-                            if (Solenoid == true) // GREEN RIGHT
+                            else if (CONTROL_READ[4] == false) // STANDART DOWN
                             {
-                                this.label8.BackColor = System.Drawing.Color.Green;
+                                this.label24.BackColor = System.Drawing.Color.White;
                             }
-                            else if (Solenoid == false) // STANDART RIGHT
+                            if (CONTROL_READ[5] == true) // GREEN DOWN
                             {
-                                this.label8.BackColor = System.Drawing.Color.White;
+                                this.label23.BackColor = System.Drawing.Color.Green;
                             }
-                            if (UpLim == true) // GREEN RIGHT
+                            else if (CONTROL_READ[5] == false) // STANDART DOWN
                             {
-                                this.label11.BackColor = System.Drawing.Color.Green;
+                                this.label23.BackColor = System.Drawing.Color.White;
                             }
-                            else if (UpLim == false) // STANDART RIGHT
+                            if (CONTROL_READ[6] == true) // GREEN DOWN
                             {
-                                this.label11.BackColor = System.Drawing.Color.White;
+                                this.label20.BackColor = System.Drawing.Color.Green;
                             }
-                            if (DownLim == true) // GREEN RIGHT
+                            else if (CONTROL_READ[6] == false) // STANDART DOWN
                             {
-                                this.label12.BackColor = System.Drawing.Color.Green;
+                                this.label20.BackColor = System.Drawing.Color.White;
                             }
-                            else if (DownLim == false) // STANDART RIGHT
+                            if (CONTROL_READ[7] == true) // GREEN DOWN
                             {
-                                this.label12.BackColor = System.Drawing.Color.White;
+                                this.label19.BackColor = System.Drawing.Color.Green;
                             }
-                            if (PapLim == true) // GREEN RIGHT
+                            else if (CONTROL_READ[7] == false) // STANDART DOWN
                             {
-                                this.label14.BackColor = System.Drawing.Color.Green;
-                                this.label15.BackColor = System.Drawing.Color.Green;
+                                this.label19.BackColor = System.Drawing.Color.White;
                             }
-                            else if (PapLim == false) // STANDART RIGHT
+                            if (CONTROL_READ[8] == true) // GREEN DOWN
                             {
-                                this.label14.BackColor = System.Drawing.Color.White;
-                                this.label15.BackColor = System.Drawing.Color.White;
+                                this.label32.BackColor = System.Drawing.Color.Green;
                             }
-                            if (PresLim == true) // GREEN RIGHT
+                            else if (CONTROL_READ[8] == false) // STANDART DOWN
                             {
-                                this.label13.BackColor = System.Drawing.Color.Green;
-                                this.label16.BackColor = System.Drawing.Color.Green;
+                                this.label32.BackColor = System.Drawing.Color.White;
                             }
-                            else if (PresLim == false) // STANDART RIGHT
+                            if (CONTROL_READ[9] == true) // GREEN DOWN
                             {
-                                this.label13.BackColor = System.Drawing.Color.White;
-                                this.label16.BackColor = System.Drawing.Color.White;
+                                this.label31.BackColor = System.Drawing.Color.Green;
                             }
+                            else if (CONTROL_READ[9] == false) // STANDART DOWN
+                            {
+                                this.label31.BackColor = System.Drawing.Color.White;
+                            }
+                            //if (START == true & HOME == false) // GREEN START, STANDART STOP, STANDART HOME
+                            //{
+                            //    this.button1.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_23;
+                            //    this.button2.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_22;
+                            //    this.button3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_26;
+                            //}
+                            //if (START == false) // RED STOP, STANDART START,STANDART HOME
+                            //{
+                            //    this.button1.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_21;
+                            //    this.button2.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_24;
+                            //    this.button3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_26;
+                            //}
+                            //if (HOME == true & START == false) // GREEN HOME, STANDART STOP, STANDART START
+                            //{
+                            //    this.button2.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_22;
+                            //    this.button3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_27;
+                            //    this.button1.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_21;
+                            //}
+                            //if (InvokeRequired)
+                            //{
+                            //    Invoke(new Action(() =>
+                            //    {
+                            //        if (tabControl1.Controls[0] == tabControl1.SelectedTab) // AUTO MODE ON
+                            //            CONTROL[4] = true;
+                            //        if (tabControl1.Controls[1] == tabControl1.SelectedTab) // AUTO MODE OFF
+                            //            CONTROL[4] = false;
+                            //        if (tabControl1.Controls[2] == tabControl1.SelectedTab) // AUTO MODE OFF
+                            //            CONTROL[4] = false;
+                            //    }));
+                            //}
+                            //else
+                            //{
+                            //    if (tabControl1.Controls[0] == tabControl1.SelectedTab) // AUTO MODE ON
+                            //        CONTROL[4] = true;
+                            //    if (tabControl1.Controls[1] == tabControl1.SelectedTab) // AUTO MODE OFF
+                            //        CONTROL[4] = false;
+                            //    if (tabControl1.Controls[2] == tabControl1.SelectedTab) // AUTO MODE OFF
+                            //        CONTROL[4] = false;
+                            //}
+                            //if (Solenoid == true) // GREEN RIGHT
+                            //{
+                            //    this.label8.BackColor = System.Drawing.Color.Green;
+                            //}
+                            //else if (Solenoid == false) // STANDART RIGHT
+                            //{
+                            //    this.label8.BackColor = System.Drawing.Color.White;
+                            //}
+                            //if (UpLim == true) // GREEN RIGHT
+                            //{
+                            //    this.label11.BackColor = System.Drawing.Color.Green;
+                            //}
+                            //else if (UpLim == false) // STANDART RIGHT
+                            //{
+                            //    this.label11.BackColor = System.Drawing.Color.White;
+                            //}
+                            //if (DownLim == true) // GREEN RIGHT
+                            //{
+                            //    this.label12.BackColor = System.Drawing.Color.Green;
+                            //}
+                            //else if (DownLim == false) // STANDART RIGHT
+                            //{
+                            //    this.label12.BackColor = System.Drawing.Color.White;
+                            //}
+                            //if (PapLim == true) // GREEN RIGHT
+                            //{
+                            //    this.label14.BackColor = System.Drawing.Color.Green;
+                            //    this.label15.BackColor = System.Drawing.Color.Green;
+                            //}
+                            //else if (PapLim == false) // STANDART RIGHT
+                            //{
+                            //    this.label14.BackColor = System.Drawing.Color.White;
+                            //    this.label15.BackColor = System.Drawing.Color.White;
+                            //}
+                            //if (PresLim == true) // GREEN RIGHT
+                            //{
+                            //    this.label13.BackColor = System.Drawing.Color.Green;
+                            //    this.label16.BackColor = System.Drawing.Color.Green;
+                            //}
+                            //else if (PresLim == false) // STANDART RIGHT
+                            //{
+                            //    this.label13.BackColor = System.Drawing.Color.White;
+                            //    this.label16.BackColor = System.Drawing.Color.White;
+                            //}
                         }
                         else if (check1 == false)
                         {
@@ -868,109 +932,109 @@ namespace TCP_LISTENER_Delta
         /// 
         /// BTN UP
         /// 
-        private void btnUP_Down(object sender, EventArgs e)
-        {
-            if (modbus.Connected == true)
-            {
-                if (motorSpeedY > 0)
-                {
-                    CONTROL[0] = true;
-                }
-                else if (motorSpeedY == 0)
-                {
-                    CONTROL[0] = false;
-                    MessageBox.Show("Set speed Y greater than 0");
-                }
-            }
-            else if (modbus.Connected == false)
-            {
-                MessageBox.Show("PLC disabled");
-            }
+        //private void btnUP_Down(object sender, EventArgs e)
+        //{
+        //    if (modbus.Connected == true)
+        //    {
+        //        if (motorSpeedY > 0)
+        //        {
+        //            CONTROL[0] = true;
+        //        }
+        //        else if (motorSpeedY == 0)
+        //        {
+        //            CONTROL[0] = false;
+        //            MessageBox.Show("Set speed Y greater than 0");
+        //        }
+        //    }
+        //    else if (modbus.Connected == false)
+        //    {
+        //        MessageBox.Show("PLC disabled");
+        //    }
 
-        }
-        private void btnUP_Up(object sender, EventArgs e)
-        {
-            CONTROL[0] = false;
-        }
-        /// 
-        /// BTN RIGHT
-        /// 
-        private void btnRIGHT_Down(object sender, EventArgs e)
-        {
-            if (modbus.Connected == true)
-            {
-                if (motorSpeedX > 0)
-                {
-                    CONTROL[3] = true;
-                }
-                else if (motorSpeedX == 0)
-                {
-                    CONTROL[3] = false;
-                    MessageBox.Show("Set speed X greater than 0");
-                }
-            }
-            else if (modbus.Connected == false)
-            {
-                MessageBox.Show("PLC disabled");
-            }
-        }
-        private void btnRIGHT_Up(object sender, EventArgs e)
-        {
-            CONTROL[3] = false;
-        }
-        /// 
-        /// BTN LEFT
-        /// 
-        private void btnLEFT_Down(object sender, EventArgs e)
-        {
-            if (modbus.Connected == true)
-            {
-                if (motorSpeedX > 0)
-                {
-                    CONTROL[2] = true;
-                }
-                else if (motorSpeedX == 0)
-                {
-                    CONTROL[2] = false;
-                    MessageBox.Show("Set speed X greater than 0");
-                }
-            }
-            else if (modbus.Connected == false)
-            {
-                MessageBox.Show("PLC disabled");
-            }
-        }
-        private void btnLEFT_Up(object sender, EventArgs e)
-        {
-            CONTROL[2] = false;
-        }
-        /// 
-        /// BTN DOWN
-        /// 
-        private void btnDWN_Down(object sender, EventArgs e)
-        {
-            if (modbus.Connected == true)
-            {
-                if (motorSpeedY > 0)
-                {
-                    CONTROL[1] = true;
-                }
-                else if (motorSpeedY == 0)
-                {
-                    CONTROL[1] = false;
-                    MessageBox.Show("Set speed Y greater than 0");
-                }
-            }
-            else if (modbus.Connected == false)
-            {
-                MessageBox.Show("PLC disabled");
-            }
+        //}
+        //private void btnUP_Up(object sender, EventArgs e)
+        //{
+        //    CONTROL[0] = false;
+        //}
+        ///// 
+        ///// BTN RIGHT
+        ///// 
+        //private void btnRIGHT_Down(object sender, EventArgs e)
+        //{
+        //    if (modbus.Connected == true)
+        //    {
+        //        if (motorSpeedX > 0)
+        //        {
+        //            CONTROL[3] = true;
+        //        }
+        //        else if (motorSpeedX == 0)
+        //        {
+        //            CONTROL[3] = false;
+        //            MessageBox.Show("Set speed X greater than 0");
+        //        }
+        //    }
+        //    else if (modbus.Connected == false)
+        //    {
+        //        MessageBox.Show("PLC disabled");
+        //    }
+        //}
+        //private void btnRIGHT_Up(object sender, EventArgs e)
+        //{
+        //    CONTROL[3] = false;
+        //}
+        ///// 
+        ///// BTN LEFT
+        ///// 
+        //private void btnLEFT_Down(object sender, EventArgs e)
+        //{
+        //    if (modbus.Connected == true)
+        //    {
+        //        if (motorSpeedX > 0)
+        //        {
+        //            CONTROL[2] = true;
+        //        }
+        //        else if (motorSpeedX == 0)
+        //        {
+        //            CONTROL[2] = false;
+        //            MessageBox.Show("Set speed X greater than 0");
+        //        }
+        //    }
+        //    else if (modbus.Connected == false)
+        //    {
+        //        MessageBox.Show("PLC disabled");
+        //    }
+        //}
+        //private void btnLEFT_Up(object sender, EventArgs e)
+        //{
+        //    CONTROL[2] = false;
+        //}
+        ///// 
+        ///// BTN DOWN
+        ///// 
+        //private void btnDWN_Down(object sender, EventArgs e)
+        //{
+        //    if (modbus.Connected == true)
+        //    {
+        //        if (motorSpeedY > 0)
+        //        {
+        //            CONTROL[1] = true;
+        //        }
+        //        else if (motorSpeedY == 0)
+        //        {
+        //            CONTROL[1] = false;
+        //            MessageBox.Show("Set speed Y greater than 0");
+        //        }
+        //    }
+        //    else if (modbus.Connected == false)
+        //    {
+        //        MessageBox.Show("PLC disabled");
+        //    }
 
-        }
-        private void btnDWN_Up(object sender, EventArgs e)
-        {
-            CONTROL[1] = false;
-        }
+        //}
+        //private void btnDWN_Up(object sender, EventArgs e)
+        //{
+        //    CONTROL[1] = false;
+        //}
         /// 
         /// WHITE BACKGROUND IF MOUSE ENTER
         /// 
@@ -1232,7 +1296,7 @@ namespace TCP_LISTENER_Delta
             {
                 //if (Solenoid == false)
                 //{
-                    CONTROL[9] = !CONTROL[9];
+                //    CONTROL[9] = !CONTROL[9];
                 //}
                 //if (Solenoid == true)
                 //{
@@ -1317,7 +1381,6 @@ namespace TCP_LISTENER_Delta
         {
             CalendarType = textBox10.Text.ToString();
         }
-
     }
 }
     
