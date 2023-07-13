@@ -44,14 +44,9 @@ namespace TCP_LISTENER_Delta
         string SchoolName = "SchoolName";
         string CalendarType = "CZ S-S";
         public int ACC_X_MAN;
-        string step;
-        int step2;
-        int step3;
-        int ReadModbus;
         int motorSpeed;
         int motorSpeedX;
         int motorSpeedY;
-        int numshots;
         int txt1;
         int txt2;
         int txt3;
@@ -78,49 +73,16 @@ namespace TCP_LISTENER_Delta
         private bool[] M = new bool[6];
         private Int32[] D = new Int32[56];
         private Int32[] SPDX = new Int32[56];
-        private Int32[] SPDY = new Int32[1];
-        private Int32[] ACCX = new Int32[1];
-        private Int32[] ACCY = new Int32[1];
         bool[] Abool = new bool[18];
         private bool[] CONTROL_WRITE = new bool[10];
         private bool[] CONTROL_READ = new bool[10];
         private string[] files;
-        private bool M1 = false;
-        private bool M2 = false;
-        private bool M3 = false;
-        private bool M4 = false;
-        private bool M5 = false;
-        private bool M6 = false;
-        private bool M7 = false;
-        private bool M8 = false;
-        private bool M9 = false;
-        private bool M10 = false;
-        private bool M11 = false;
-        private bool M12 = false;
-        private bool F = false;
-        private bool BTNCon;
-        private bool UP;
-        private bool DOWN;
-        private bool LEFT;
-        private bool RIGHT;
-        private bool START;
-        private bool STOP;
-        private bool HOME;
-        private bool Solenoid;
-        private bool UpLim;
-        private bool DownLim;
-        private bool RightLim;
-        private bool LeftLim;
-        private bool PapLim;
-        private bool PresLim;
+      
         private bool check1 = false;
-        private bool check2 = false;
-
+    
         string sub = "";
         string tesser;
-        double IntPosition;
-        double PosDiff;
-        double Pos_Prev;
+
 
         /// 
         /// Init Form
@@ -1390,6 +1352,11 @@ namespace TCP_LISTENER_Delta
         private void textBox10_TextChanged_1(object sender, EventArgs e)
         {
             CalendarType = textBox10.Text.ToString();
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

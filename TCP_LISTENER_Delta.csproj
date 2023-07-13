@@ -139,7 +139,6 @@
     <Compile Include="Form_Listener - Copy.Designer.cs">
       <DependentUpon>Form_Listener - Copy.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyBasler.cs" />
     <Compile Include="Picker_TCP.cs">
       <SubType>Form</SubType>
     </Compile>
