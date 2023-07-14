@@ -1305,11 +1305,8 @@ namespace TCP_LISTENER_Delta
             try
             {
                 modbus.Disconnect();
-                Thread.Sleep(100);
                 thread1.Abort();
-                Thread.Sleep(100);
                 thread2.Abort();
-                Thread.Sleep(100);
                 Close();
             }
             catch
