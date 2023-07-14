@@ -26,30 +26,6 @@ namespace TCP_LISTENER_Delta.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ACC_X_MAN {
-            get {
-                return ((string)(this["ACC_X_MAN"]));
-            }
-            set {
-                this["ACC_X_MAN"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DEC_X_MAN {
-            get {
-                return ((string)(this["DEC_X_MAN"]));
-            }
-            set {
-                this["DEC_X_MAN"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ACC_Y_MAN {
             get {
                 return ((string)(this["ACC_Y_MAN"]));
@@ -68,6 +44,30 @@ namespace TCP_LISTENER_Delta.Properties {
             }
             set {
                 this["DEC_Y_MAN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ManSpdSave {
+            get {
+                return ((int)(this["ManSpdSave"]));
+            }
+            set {
+                this["ManSpdSave"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CollatorSave {
+            get {
+                return ((bool)(this["CollatorSave"]));
+            }
+            set {
+                this["CollatorSave"] = value;
             }
         }
         
@@ -158,24 +158,24 @@ namespace TCP_LISTENER_Delta.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int SPEED_X_MAN {
-            get {
-                return ((int)(this["SPEED_X_MAN"]));
-            }
-            set {
-                this["SPEED_X_MAN"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int SPEED_Y_MAN {
             get {
                 return ((int)(this["SPEED_Y_MAN"]));
             }
             set {
                 this["SPEED_Y_MAN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RailcartSave {
+            get {
+                return ((bool)(this["RailcartSave"]));
+            }
+            set {
+                this["RailcartSave"] = value;
             }
         }
         

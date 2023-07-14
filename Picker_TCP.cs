@@ -47,6 +47,7 @@ namespace TCP_LISTENER_Delta
         int motorSpeed;
         int motorSpeedX;
         int motorSpeedY;
+        int ManSpd;
         int txt1;
         int txt2;
         int txt3;
@@ -63,6 +64,24 @@ namespace TCP_LISTENER_Delta
         int Release_TMR;
         int i;
         int milliseconds = 300;
+        bool bit1;
+        bool bit2;
+        bool bit3;
+        bool bit4;
+        bool bit5;
+        bool bit6;
+        bool bit7;
+        bool bit8;
+        bool bit9;
+        bool bit10;
+        bool bit11;
+        bool bit12;
+        bool bit13;
+        bool bit14;
+        bool BoolUp;
+        bool BoolDwn;
+        bool BoolCollator;
+        bool BoolRailcart;
         Int32 posXtab1;
         Int32 posXtab2;
         Int32 posYtab1;
@@ -70,12 +89,10 @@ namespace TCP_LISTENER_Delta
         Int32 Hi;
         private int imageIndex;
         private string[] imageList;
-        private bool[] M = new bool[6];
-        private Int32[] D = new Int32[56];
-        private Int32[] SPDX = new Int32[56];
-        bool[] Abool = new bool[18];
-        private bool[] CONTROL_WRITE = new bool[10];
-        private bool[] CONTROL_READ = new bool[10];
+        private Int32[] WORD_READ = new Int32[56];
+        private Int32[] WORD_WRITE = new Int32[56];
+        private bool[] CONTROL_WRITE = new bool[14];
+        private bool[] CONTROL_READ = new bool[14];
         private string[] files;
       
         private bool check1 = false;
@@ -108,11 +125,11 @@ namespace TCP_LISTENER_Delta
             //bTimer.AutoReset = true;
             //bTimer.Enabled = true;
             this.Closing += new CancelEventHandler(this.Form_Listener_Closing);
-            //btnUP.MouseUp += btnUP_Up;
-            //btnUP.MouseDown += btnUP_Down;
+            btnUP.MouseUp += btnUP_Up;
+            btnUP.MouseDown += btnUP_Down;
             btnUP.MouseEnter += btnUp_ENTER;
-           // btnDWN.MouseDown += btnDWN_Down;
-           // btnDWN.MouseUp += btnDWN_Up;
+            btnDWN.MouseDown += btnDWN_Down;
+            btnDWN.MouseUp += btnDWN_Up;
             btnDWN.MouseEnter += btnDWN_ENTER;
             btnStart.MouseEnter += OnMouseEnterButton1;
             btnStart.MouseLeave += OnMouseLeaveButton1;
@@ -123,8 +140,8 @@ namespace TCP_LISTENER_Delta
             ///
             /// GET SAVED VALUES
             ///
-            textBox45.Text = Properties.Settings.Default.ACC_X_MAN;
-            textBox44.Text = Properties.Settings.Default.DEC_X_MAN;
+            textBox45.Text = Properties.Settings.Default.ACC_Y_MAN;
+            textBox44.Text = Properties.Settings.Default.DEC_Y_MAN;
             txtPort.Text = Properties.Settings.Default.Port;
             txtIPAdress.Text = Properties.Settings.Default.IP;
             textBox16.Text = Properties.Settings.Default.SpeedY1;
@@ -137,6 +154,10 @@ namespace TCP_LISTENER_Delta
             textBox28.Text = Properties.Settings.Default.ReleaseTMR;
             textBox5.Text = Properties.Settings.Default.tesPath;
             textBox2.Text = Properties.Settings.Default.Height;
+            textBox4.Text = Properties.Settings.Default.ManSpdSave.ToString();
+            trackBar1.Value = Properties.Settings.Default.ManSpdSave;
+            checkBox12.Checked = Properties.Settings.Default.CollatorSave;
+            checkBox11.Checked = Properties.Settings.Default.RailcartSave;
 
         }
         /// 
@@ -161,22 +182,7 @@ namespace TCP_LISTENER_Delta
         {
             if (modbus.Connected == true)
             {
-                if (txt9 == txt10 || txt10 == txt11 || txt11 == txt9)
-                {
-                    MessageBox.Show("Incorrect position value. Coordinates have the same values");
-                }
-                else if (txt9 != txt10 & txt10 != txt11 & txt11 != txt9)
-                {
-                    if (motorSpeed > 0 & D[40] > 0 & D[42] > 0 & D[44] > 0 & D[46] > 0)
-                    {
-                        //CONTROL[5] = true;
-                    }
-                    else if (motorSpeed == 0 || D[40] == 0 || D[42] == 0 || D[44] == 0 || D[46] == 0)
-                    {
-                        //CONTROL[5] = false;
-                        MessageBox.Show("Speed is 0, set higher value");
-                    }
-                }
+
             }
             else if (modbus.Connected == false)
             {
@@ -190,15 +196,7 @@ namespace TCP_LISTENER_Delta
         {
             if (modbus.Connected == true)
             {
-                if (motorSpeed > 0 & D[40] > 0 & D[42] > 0 & D[44] > 0 & D[46] > 0)
-                {
-                    //CONTROL[7] = true;
-                }
-                else if (motorSpeed == 0 || D[40] == 0 || D[42] == 0 || D[44] == 0 || D[46] == 0)
-                {
-                    //CONTROL[7] = false;
-                    MessageBox.Show("Speed is 0, set higher value");
-                }
+
             }
             else if (modbus.Connected == false)
             {
@@ -225,15 +223,6 @@ namespace TCP_LISTENER_Delta
         {
             motorSpeed = MotorSpeedSliderControl.Value;
             Properties.Settings.Default.SpeedPERC = MotorSpeedSliderControl.Value;
-            Properties.Settings.Default.Save();
-        }
-        /// 
-        /// Speed track bar
-        /// 
-        private void trackBar2_Scroll(object sender, EventArgs e)
-        {
-            motorSpeedY = trackBar2.Value;
-            Properties.Settings.Default.SPEED_Y_MAN = trackBar2.Value;
             Properties.Settings.Default.Save();
         }
         /// 
@@ -384,36 +373,39 @@ namespace TCP_LISTENER_Delta
                     try
                     {
 
-                        SPDX[2] = Convert.ToInt32(motorSpeedX); //Write Manual Speed X
-                        SPDX[10] = Convert.ToInt32(motorSpeedY);//Write Manual Speed Y
-                        SPDX[30] = Convert.ToInt32(motorSpeed); //Write Main Speed Percent
-                        SPDX[4] = txt1; //ACC X
-                        SPDX[12] = txt3; //ACC Y
-                        SPDX[28] = txt2; //ACC X
-                        SPDX[26] = txt4; //ACC Y
-                        SPDX[32] = txt5; //SPD X1
-                        SPDX[34] = txt6; //SPD X2
-                        SPDX[36] = txt7; //SPD Y1
-                        SPDX[38] = txt8; //SPD Y2
-                        SPDX[48] = txt9; //POSITION 1
-                        SPDX[50] = txt10; //POSITION 2
-                        SPDX[52] = txt11; //POSITION 3
-                        SPDX[16] = Grab_TMR; //Grab_TMR
-                        SPDX[18] = Scan_TMR; //Scan_TMR
-                        SPDX[20] = Release_TMR; //Release_TMR
-                        SPDX[54] = Hi;
+                        WORD_WRITE[2] = Convert.ToInt32(motorSpeedX); //Write Manual Speed X
+                        WORD_WRITE[10] = Convert.ToInt32(ManSpd);//Write ManSpd
+                        WORD_WRITE[30] = Convert.ToInt32(motorSpeed); //Write Main Speed Percent
+                        WORD_WRITE[4] = txt1; //ACC X
+                        WORD_WRITE[12] = txt3; //ACC Y
+                        WORD_WRITE[28] = txt2; //ACC X
+                        WORD_WRITE[26] = txt4; //ACC Y
+                        WORD_WRITE[32] = txt5; //SPD X1
+                        WORD_WRITE[34] = txt6; //SPD X2
+                        WORD_WRITE[36] = txt7; //SPD Y1
+                        WORD_WRITE[38] = txt8; //SPD Y2
+                        WORD_WRITE[48] = txt9; //POSITION 1
+                        WORD_WRITE[50] = txt10; //POSITION 2
+                        WORD_WRITE[52] = txt11; //POSITION 3
+                        WORD_WRITE[16] = Grab_TMR; //Grab_TMR
+                        WORD_WRITE[18] = Scan_TMR; //Scan_TMR
+                        WORD_WRITE[20] = Release_TMR; //Release_TMR
+                        WORD_WRITE[54] = Hi;
 
-                        CONTROL_WRITE[0] = checkBox1.Checked;
-                        CONTROL_WRITE[1] = checkBox2.Checked;
-                        CONTROL_WRITE[2] = checkBox3.Checked;
-                        CONTROL_WRITE[3] = checkBox4.Checked;
-                        CONTROL_WRITE[4] = checkBox5.Checked;
-                        CONTROL_WRITE[5] = checkBox6.Checked;
-                        CONTROL_WRITE[6] = checkBox7.Checked;
-                        CONTROL_WRITE[7] = checkBox8.Checked;
-                        CONTROL_WRITE[8] = checkBox9.Checked;
-                        CONTROL_WRITE[9] = checkBox10.Checked;
-                        //modbus.WriteMultipleCoils(147, Abool);
+                        CONTROL_WRITE[0] = checkBox1.Checked; //M100
+                        CONTROL_WRITE[1] = checkBox2.Checked; //M101
+                        CONTROL_WRITE[2] = checkBox3.Checked; //M102
+                        CONTROL_WRITE[3] = checkBox4.Checked; //M103
+                        CONTROL_WRITE[4] = checkBox5.Checked; //M104
+                        CONTROL_WRITE[5] = checkBox6.Checked; //M105
+                        CONTROL_WRITE[6] = checkBox7.Checked; //M106
+                        CONTROL_WRITE[7] = checkBox8.Checked; //M107
+                        CONTROL_WRITE[8] = checkBox9.Checked; //M108
+                        CONTROL_WRITE[9] = checkBox10.Checked; //M109
+                        CONTROL_WRITE[10] = BoolUp; //M110
+                        CONTROL_WRITE[11] = BoolDwn; //M111
+                        CONTROL_WRITE[12] = BoolCollator; //M112
+                        CONTROL_WRITE[13] = BoolRailcart; //M113
                         try
                         {
                             modbus.WriteMultipleCoils(100, CONTROL_WRITE); // WRITE ALL BITS
@@ -423,24 +415,20 @@ namespace TCP_LISTENER_Delta
                        {
                            MessageBox.Show("Write mulriple coils: " + ex.Message);
                        }
-                        //Thread.Sleep(milliseconds);
-
                         try
                         {
-                            modbus.WriteMultipleRegisters(0, SPDX); ;  // WRITE ALL WORDS
+                            modbus.WriteMultipleRegisters(0, WORD_WRITE); ;  // WRITE ALL WORDS
                         }
 
                        catch (Exception ex)
                         {
                            MessageBox.Show("Write mulriple registers: " + ex.Message);
                         }
-                        //CONTROL[7] = false;// RESET "HOME" AFTER WRITING
-                        //CONTROL[6] = false;// RESET "STOP" AFTER WRITING
                         if (check1 == true)
                         {
                             try
                             {
-                                D = modbus.ReadHoldingRegisters(0, 56); //READ ALL WORDS
+                                WORD_READ = modbus.ReadHoldingRegisters(0, 56); //READ ALL WORDS
                                 posXtab1 = EasyModbus.ModbusClient.ConvertRegistersToInt(modbus.ReadHoldingRegisters(24, 2));
                                 posYtab1 = EasyModbus.ModbusClient.ConvertRegistersToInt(modbus.ReadHoldingRegisters(22, 2));
                             }
@@ -453,30 +441,27 @@ namespace TCP_LISTENER_Delta
                             //Thread.Sleep(milliseconds);
                             try
                             {
-                                CONTROL_READ = modbus.ReadCoils(200, 10);
-                                M = modbus.ReadCoils(22, 6);
+                                CONTROL_READ = modbus.ReadCoils(200, 14);
                             }
-
+                            
                             catch (Exception ex)
                             {
                                 MessageBox.Show("Read bits MDBS: " + ex.Message);
                             }
-
-                            //CONTROL[10] = Mcontrol[10];
-                            //UP = Mcontrol[0];
-                            //DOWN = Mcontrol[1];
-                            //LEFT = Mcontrol[2];
-                            //RIGHT = Mcontrol[3];
-                            //START = Mcontrol[5];
-                            //HOME = Mcontrol[8];
-                            //Solenoid = Mcontrol[9];
-                            //RightLim = M[0];
-                            //LeftLim = M[1];
-                            //UpLim = M[2];
-                            //DownLim = M[3];
-                            //PresLim = M[4];
-                            //PapLim = M[5];
-                            //Thread.Sleep(milliseconds);
+                            bit1 = CONTROL_READ[0]; //M200
+                            bit2 = CONTROL_READ[1]; //M201
+                            bit3 = CONTROL_READ[2]; //M202
+                            bit4 = CONTROL_READ[3]; //M203
+                            bit5 = CONTROL_READ[4]; //M204
+                            bit6 = CONTROL_READ[5]; //M205
+                            bit7 = CONTROL_READ[6]; //M206
+                            bit8 = CONTROL_READ[7]; //M207
+                            bit9 = CONTROL_READ[8]; //M208
+                            bit10 = CONTROL_READ[9]; //M209
+                            bit11 = CONTROL_READ[10]; //M210
+                            bit12 = CONTROL_READ[11]; //M211
+                            bit13 = CONTROL_READ[12]; //M212
+                            bit14 = CONTROL_READ[13]; //M213
 
 
                             if (CONTROL_READ[0] == true) // GREEN UP
@@ -675,10 +660,10 @@ namespace TCP_LISTENER_Delta
                     {
                         Invoke(new Action(() =>
                     {
-                        MotorSpeedSliderControl.Value = Properties.Settings.Default.SpeedPERC;// PERCENT OF MAIN SPEED = SAVED VALUE
-                        motorSpeed = MotorSpeedSliderControl.Value;                           //
-                        trackBar2.Value = Properties.Settings.Default.SPEED_Y_MAN;            // MANUAL SPEED Y = SAVED VALUE
-                        motorSpeedY = trackBar2.Value;
+                        //MotorSpeedSliderControl.Value = Properties.Settings.Default.SpeedPERC;// PERCENT OF MAIN SPEED = SAVED VALUE
+                        //motorSpeed = MotorSpeedSliderControl.Value;                           //
+                        //trackBar2.Value = Properties.Settings.Default.RailcartSave;            // MANUAL SPEED Y = SAVED VALUE
+                        //motorSpeedY = trackBar2.Value;
 
                         DateTime thisDay = DateTime.Now;
                         textBox3.Text = thisDay.ToString("d") + @"
@@ -721,17 +706,16 @@ namespace TCP_LISTENER_Delta
                             textBox1.Text = "";
                             textBox20.Text = "";
                             textBox21.Text = "";
-                            textBox4.Text = "";
                             textBox9.Text = "";
                         }
                     }));
                     }
                     else
                     {
-                        MotorSpeedSliderControl.Value = Properties.Settings.Default.SpeedPERC;
-                        motorSpeed = MotorSpeedSliderControl.Value;
-                        trackBar2.Value = Properties.Settings.Default.SPEED_Y_MAN;
-                        motorSpeedY = trackBar2.Value;
+                        //MotorSpeedSliderControl.Value = Properties.Settings.Default.SpeedPERC;
+                        //motorSpeed = MotorSpeedSliderControl.Value;
+                        //trackBar2.Value = Properties.Settings.Default.RailcartSave;
+                        //motorSpeedY = trackBar2.Value;
 
                         DateTime thisDay = DateTime.Now;
                         textBox3.Text = thisDay.ToString("d") + @"
@@ -775,7 +759,6 @@ namespace TCP_LISTENER_Delta
                             textBox1.Text = "";
                             textBox20.Text = "";
                             textBox21.Text = "";
-                            textBox4.Text = "";
                             textBox9.Text = "";
                         }
                     }
@@ -810,26 +793,23 @@ namespace TCP_LISTENER_Delta
                         {
                             Invoke(new Action(() =>
                             {
-                                textBox9.Text = D[10].ToString(); //M1 SPEED (Manual Speed Y)
-                                textBox1.Text = D[30].ToString() + "%"; // PERCENT OF MAIN SPEED
-                                textBox4.Text = posXtab1.ToString(); //position Y Tab2
+                                textBox9.Text = WORD_READ[10].ToString(); //M1 SPEED (Manual Speed Y)
+                                textBox1.Text = WORD_READ[30].ToString() + "%"; // PERCENT OF MAIN SPEED
                                 textBox13.Text = posXtab1.ToString(); //position Y Tab1
-                                textBox20.Text = D[44].ToString(); //SPD Y1 Tab1
-                                textBox21.Text = D[46].ToString(); //SPD Y2 Tab1
-
+                                textBox20.Text = WORD_READ[44].ToString(); //SPD Y1 Tab1
+                                textBox21.Text = WORD_READ[46].ToString(); //SPD Y2 Tab1
+                                
 
                             }));
                         }
 
                         else
                         {
-                            textBox9.Text = D[10].ToString(); //M1 SPEED (Manual Speed Y)
-                            textBox1.Text = D[30].ToString() + "%"; // PERCENT OF MAIN SPEED  
-                            textBox4.Text = posXtab1.ToString(); //position Y Tab2
+                            textBox9.Text = WORD_READ[10].ToString(); //M1 SPEED (Manual Speed Y)
+                            textBox1.Text = WORD_READ[30].ToString() + "%"; // PERCENT OF MAIN SPEED
                             textBox13.Text = posXtab1.ToString(); //position Y Tab1
-                            textBox20.Text = D[44].ToString(); //SPD Y1 Tab1
-                            textBox21.Text = D[46].ToString(); //SPD Y2 Tab1
-
+                            textBox20.Text = WORD_READ[44].ToString(); //SPD Y1 Tab1
+                            textBox21.Text = WORD_READ[46].ToString(); //SPD Y2 Tab1
 
                         }
 
@@ -866,7 +846,7 @@ namespace TCP_LISTENER_Delta
                 else if (txt <= 1000)
                     txt1 = txt;
             }
-            Properties.Settings.Default.ACC_X_MAN = textBox45.Text;
+            Properties.Settings.Default.ACC_Y_MAN = textBox45.Text;
             Properties.Settings.Default.Save();
         }
         private void CheckEnter(object sender, KeyPressEventArgs e)
@@ -898,115 +878,64 @@ namespace TCP_LISTENER_Delta
                 else if (txt <= 1000)
                     txt2 = txt;
             }
-            Properties.Settings.Default.DEC_X_MAN = textBox44.Text;
+            Properties.Settings.Default.DEC_Y_MAN = textBox44.Text;
             Properties.Settings.Default.Save();
         }
         /// 
         /// BTN UP
         /// 
-        //private void btnUP_Down(object sender, EventArgs e)
-        //{
-        //    if (modbus.Connected == true)
-        //    {
-        //        if (motorSpeedY > 0)
-        //        {
-        //            CONTROL[0] = true;
-        //        }
-        //        else if (motorSpeedY == 0)
-        //        {
-        //            CONTROL[0] = false;
-        //            MessageBox.Show("Set speed Y greater than 0");
-        //        }
-        //    }
-        //    else if (modbus.Connected == false)
-        //    {
-        //        MessageBox.Show("PLC disabled");
-        //    }
+        private void btnUP_Down(object sender, EventArgs e)
+        {
+            if (modbus.Connected == true)
+            {
+                if (ManSpd > 0)
+                {
+                   BoolUp = true;
+                }
+                else if (ManSpd == 0)
+                {
+                   BoolUp = false;
+                   MessageBox.Show("set speed greater than 0");
+                }
+            }
+            else if (modbus.Connected == false)
+            {
+                MessageBox.Show("plc disabled");
+            }
 
-        //}
-        //private void btnUP_Up(object sender, EventArgs e)
-        //{
-        //    CONTROL[0] = false;
-        //}
-        ///// 
-        ///// BTN RIGHT
-        ///// 
-        //private void btnRIGHT_Down(object sender, EventArgs e)
-        //{
-        //    if (modbus.Connected == true)
-        //    {
-        //        if (motorSpeedX > 0)
-        //        {
-        //            CONTROL[3] = true;
-        //        }
-        //        else if (motorSpeedX == 0)
-        //        {
-        //            CONTROL[3] = false;
-        //            MessageBox.Show("Set speed X greater than 0");
-        //        }
-        //    }
-        //    else if (modbus.Connected == false)
-        //    {
-        //        MessageBox.Show("PLC disabled");
-        //    }
-        //}
-        //private void btnRIGHT_Up(object sender, EventArgs e)
-        //{
-        //    CONTROL[3] = false;
-        //}
-        ///// 
-        ///// BTN LEFT
-        ///// 
-        //private void btnLEFT_Down(object sender, EventArgs e)
-        //{
-        //    if (modbus.Connected == true)
-        //    {
-        //        if (motorSpeedX > 0)
-        //        {
-        //            CONTROL[2] = true;
-        //        }
-        //        else if (motorSpeedX == 0)
-        //        {
-        //            CONTROL[2] = false;
-        //            MessageBox.Show("Set speed X greater than 0");
-        //        }
-        //    }
-        //    else if (modbus.Connected == false)
-        //    {
-        //        MessageBox.Show("PLC disabled");
-        //    }
-        //}
-        //private void btnLEFT_Up(object sender, EventArgs e)
-        //{
-        //    CONTROL[2] = false;
-        //}
+        }
+        private void btnUP_Up(object sender, EventArgs e)
+        {
+            BoolUp = false;
+        }
+
         ///// 
         ///// BTN DOWN
         ///// 
-        //private void btnDWN_Down(object sender, EventArgs e)
-        //{
-        //    if (modbus.Connected == true)
-        //    {
-        //        if (motorSpeedY > 0)
-        //        {
-        //            CONTROL[1] = true;
-        //        }
-        //        else if (motorSpeedY == 0)
-        //        {
-        //            CONTROL[1] = false;
-        //            MessageBox.Show("Set speed Y greater than 0");
-        //        }
-        //    }
-        //    else if (modbus.Connected == false)
-        //    {
-        //        MessageBox.Show("PLC disabled");
-        //    }
+        private void btnDWN_Down(object sender, EventArgs e)
+        {
+            if (modbus.Connected == true)
+            {
+                if (ManSpd > 0)
+                {
+                    BoolDwn = true;
+                }
+               else if (ManSpd == 0)
+                {
+                    BoolDwn = false;
+                    MessageBox.Show("Set speed greater than 0");
+                }
+            }
+            else if (modbus.Connected == false)
+            {
+                MessageBox.Show("PLC disabled");
+            }
 
-        //}
-        //private void btnDWN_Up(object sender, EventArgs e)
-        //{
-        //    CONTROL[1] = false;
-        //}
+        }
+        private void btnDWN_Up(object sender, EventArgs e)
+        {
+            BoolDwn = false;
+        }
         /// 
         /// WHITE BACKGROUND IF MOUSE ENTER
         /// 
@@ -1326,17 +1255,7 @@ namespace TCP_LISTENER_Delta
 
         private void Form_Listener_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            try
-            {
-                check1 = false;
-                modbus.Disconnect();
-                thread1.Abort();;
-                thread2.Abort();
-            }
-            catch
-            {
-                return;
-            }
+
         }
 
         private void textBox7_TextChanged_1(object sender, EventArgs e)
@@ -1357,6 +1276,46 @@ namespace TCP_LISTENER_Delta
         private void label27_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            ManSpd = trackBar1.Value;
+            textBox4.Text = ManSpd.ToString();
+            Properties.Settings.Default.ManSpdSave = ManSpd;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox12_CheckedChanged(object sender, EventArgs e)
+        {
+            BoolCollator = checkBox12.Checked;
+            Properties.Settings.Default.CollatorSave = BoolCollator;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox11_CheckedChanged(object sender, EventArgs e)
+        {
+            BoolRailcart = checkBox11.Checked;
+            Properties.Settings.Default.RailcartSave = BoolRailcart;
+            Properties.Settings.Default.Save();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                modbus.Disconnect();
+                Thread.Sleep(100);
+                thread1.Abort();
+                Thread.Sleep(100);
+                thread2.Abort();
+                Thread.Sleep(100);
+                Close();
+            }
+            catch
+            {
+                return;
+            }
         }
     }
 }

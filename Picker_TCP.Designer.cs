@@ -102,6 +102,9 @@
             this.lblAdress = new System.Windows.Forms.Label();
             this.txtPort = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.checkBox12 = new System.Windows.Forms.CheckBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.textBox52 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -171,7 +174,7 @@
             this.textBox34 = new System.Windows.Forms.TextBox();
             this.textBox35 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.button4 = new System.Windows.Forms.Button();
             Speed = new System.Windows.Forms.Label();
             label27 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -184,10 +187,10 @@
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // Speed
@@ -291,7 +294,6 @@
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.SmallChange = 100;
             this.trackBar2.TickFrequency = 2000;
-            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // tabPage4
             // 
@@ -695,6 +697,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkBox11);
+            this.tabPage2.Controls.Add(this.checkBox12);
             this.tabPage2.Controls.Add(this.trackBar1);
             this.tabPage2.Controls.Add(label27);
             this.tabPage2.Controls.Add(this.textBox52);
@@ -715,6 +719,31 @@
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox11
+            // 
+            resources.ApplyResources(this.checkBox11, "checkBox11");
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox11_CheckedChanged);
+            // 
+            // checkBox12
+            // 
+            resources.ApplyResources(this.checkBox12, "checkBox12");
+            this.checkBox12.Name = "checkBox12";
+            this.checkBox12.UseVisualStyleBackColor = true;
+            this.checkBox12.CheckedChanged += new System.EventHandler(this.checkBox12_CheckedChanged);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.trackBar1, "trackBar1");
+            this.trackBar1.LargeChange = 10;
+            this.trackBar1.Maximum = 1000;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.SmallChange = 10;
+            this.trackBar1.TickFrequency = 100;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // textBox52
             // 
@@ -1274,15 +1303,12 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
-            // trackBar1
+            // button4
             // 
-            this.trackBar1.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.trackBar1, "trackBar1");
-            this.trackBar1.LargeChange = 10;
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.SmallChange = 10;
-            this.trackBar1.TickFrequency = 10;
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form_Listener
             // 
@@ -1290,6 +1316,8 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             resources.ApplyResources(this, "$this");
+            this.ControlBox = false;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox2);
@@ -1314,12 +1342,12 @@
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1466,6 +1494,9 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TextBox textBox52;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox checkBox12;
+        private System.Windows.Forms.Button button4;
     }
 }
 
