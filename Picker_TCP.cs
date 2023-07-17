@@ -124,7 +124,7 @@ namespace TCP_LISTENER_Delta
             //bTimer.Interval = 50;
             //bTimer.AutoReset = true;
             //bTimer.Enabled = true;
-            this.Closing += new CancelEventHandler(this.Form_Listener_Closing);
+            this.Closing += new CancelEventHandler(this.Form_Listener_Close);
             btnUP.MouseUp += btnUP_Up;
             btnUP.MouseDown += btnUP_Down;
             btnUP.MouseEnter += btnUp_ENTER;
@@ -1300,14 +1300,15 @@ namespace TCP_LISTENER_Delta
             Properties.Settings.Default.Save();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Form_Listener_Close(object sender, System.ComponentModel.CancelEventArgs e)
         {
             try
             {
+                check1 = false;
+                Thread.Sleep(100);
                 modbus.Disconnect();
-                thread1.Abort();
+                thread1.Abort(); ;
                 thread2.Abort();
-                Close();
             }
             catch
             {
