@@ -670,34 +670,34 @@ namespace TCP_LISTENER_Delta
 " + thisDay.ToString("T");
                         textBox6.Text = "["+ JobID + "] - [" + SchoolName + "]"+ @"
 " + "Calendar type: " + CalendarType;
-                        textBox29.Text = "Pos: " + "1" + @"
-" + "[" + "Month"+"]";
-                        textBox30.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox31.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox32.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox33.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox34.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox35.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox43.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox46.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox47.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox48.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox49.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox50.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox51.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
+//                        textBox29.Text = "Pos: " + "1" + @"
+//" + "[" + "Month"+"]";
+//                        textBox30.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox31.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox32.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox33.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox34.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox35.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox43.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox46.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox47.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox48.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox49.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox50.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox51.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
 
                         if (modbus.Connected == false)
                         {
@@ -722,34 +722,34 @@ namespace TCP_LISTENER_Delta
 " + thisDay.ToString("T");
                         textBox6.Text = "[" + JobID + "] - [" + SchoolName + "]" + @"
 " + "Calendar type: " + CalendarType;
-                        textBox29.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox30.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox31.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox32.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox33.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox34.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox35.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox43.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox46.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox47.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox48.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox49.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox50.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
-                        textBox51.Text = "Pos: " + "1" + @"
-" + "[" + "Month" + "]";
+//                        textBox29.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox30.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox31.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox32.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox33.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox34.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox35.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox43.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox46.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox47.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox48.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox49.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox50.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
+//                        textBox51.Text = "Pos: " + "1" + @"
+//" + "[" + "Month" + "]";
 
 
                         if (modbus.Connected == false)

@@ -120,6 +120,31 @@
             this.btnDWN = new System.Windows.Forms.Button();
             this.btnUP = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox46 = new System.Windows.Forms.TextBox();
+            this.textBox48 = new System.Windows.Forms.TextBox();
+            this.textBox50 = new System.Windows.Forms.TextBox();
+            this.textBox51 = new System.Windows.Forms.TextBox();
+            this.textBox53 = new System.Windows.Forms.TextBox();
+            this.textBox54 = new System.Windows.Forms.TextBox();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.textBox34 = new System.Windows.Forms.TextBox();
+            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.textBox36 = new System.Windows.Forms.TextBox();
+            this.textBox37 = new System.Windows.Forms.TextBox();
+            this.textBox38 = new System.Windows.Forms.TextBox();
+            this.textBox41 = new System.Windows.Forms.TextBox();
+            this.textBox42 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -134,6 +159,7 @@
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.textBox49 = new System.Windows.Forms.TextBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -144,36 +170,11 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.textBox39 = new System.Windows.Forms.TextBox();
-            this.textBox40 = new System.Windows.Forms.TextBox();
-            this.textBox41 = new System.Windows.Forms.TextBox();
-            this.textBox42 = new System.Windows.Forms.TextBox();
-            this.textBox43 = new System.Windows.Forms.TextBox();
-            this.textBox46 = new System.Windows.Forms.TextBox();
-            this.textBox47 = new System.Windows.Forms.TextBox();
-            this.textBox48 = new System.Windows.Forms.TextBox();
-            this.textBox49 = new System.Windows.Forms.TextBox();
-            this.textBox50 = new System.Windows.Forms.TextBox();
-            this.textBox51 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             Speed = new System.Windows.Forms.Label();
             label27 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -188,7 +189,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.tabPage1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -840,6 +841,34 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label35);
+            this.tabPage1.Controls.Add(this.label34);
+            this.tabPage1.Controls.Add(this.label30);
+            this.tabPage1.Controls.Add(this.textBox46);
+            this.tabPage1.Controls.Add(this.textBox48);
+            this.tabPage1.Controls.Add(this.textBox50);
+            this.tabPage1.Controls.Add(this.textBox51);
+            this.tabPage1.Controls.Add(this.textBox53);
+            this.tabPage1.Controls.Add(this.textBox54);
+            this.tabPage1.Controls.Add(this.textBox29);
+            this.tabPage1.Controls.Add(this.textBox30);
+            this.tabPage1.Controls.Add(this.textBox31);
+            this.tabPage1.Controls.Add(this.textBox32);
+            this.tabPage1.Controls.Add(this.textBox33);
+            this.tabPage1.Controls.Add(this.textBox34);
+            this.tabPage1.Controls.Add(this.textBox35);
+            this.tabPage1.Controls.Add(this.textBox36);
+            this.tabPage1.Controls.Add(this.textBox37);
+            this.tabPage1.Controls.Add(this.textBox38);
+            this.tabPage1.Controls.Add(this.textBox41);
+            this.tabPage1.Controls.Add(this.textBox42);
+            this.tabPage1.Controls.Add(this.textBox19);
+            this.tabPage1.Controls.Add(this.textBox25);
+            this.tabPage1.Controls.Add(this.textBox18);
+            this.tabPage1.Controls.Add(this.textBox14);
+            this.tabPage1.Controls.Add(this.textBox12);
+            this.tabPage1.Controls.Add(this.textBox11);
+            this.tabPage1.Controls.Add(this.textBox15);
             this.tabPage1.Controls.Add(this.label31);
             this.tabPage1.Controls.Add(this.label32);
             this.tabPage1.Controls.Add(this.label19);
@@ -854,6 +883,7 @@
             this.tabPage1.Controls.Add(this.checkBox9);
             this.tabPage1.Controls.Add(this.checkBox8);
             this.tabPage1.Controls.Add(this.checkBox7);
+            this.tabPage1.Controls.Add(this.textBox49);
             this.tabPage1.Controls.Add(this.checkBox6);
             this.tabPage1.Controls.Add(this.checkBox5);
             this.tabPage1.Controls.Add(this.checkBox4);
@@ -864,10 +894,235 @@
             this.tabPage1.Controls.Add(this.textBox8);
             this.tabPage1.Controls.Add(this.textBox7);
             this.tabPage1.Controls.Add(this.textBox6);
-            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
+            this.tabPage1.Controls.Add(this.pictureBox3);
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox46
+            // 
+            this.textBox46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox46.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox46, "textBox46");
+            this.textBox46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox46.Name = "textBox46";
+            this.textBox46.ReadOnly = true;
+            // 
+            // textBox48
+            // 
+            this.textBox48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox48.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox48, "textBox48");
+            this.textBox48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox48.Name = "textBox48";
+            this.textBox48.ReadOnly = true;
+            // 
+            // textBox50
+            // 
+            this.textBox50.BackColor = System.Drawing.Color.White;
+            this.textBox50.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox50, "textBox50");
+            this.textBox50.ForeColor = System.Drawing.Color.Black;
+            this.textBox50.Name = "textBox50";
+            this.textBox50.ReadOnly = true;
+            // 
+            // textBox51
+            // 
+            this.textBox51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox51.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox51, "textBox51");
+            this.textBox51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox51.Name = "textBox51";
+            this.textBox51.ReadOnly = true;
+            // 
+            // textBox53
+            // 
+            this.textBox53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox53.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox53, "textBox53");
+            this.textBox53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox53.Name = "textBox53";
+            this.textBox53.ReadOnly = true;
+            // 
+            // textBox54
+            // 
+            this.textBox54.BackColor = System.Drawing.Color.White;
+            this.textBox54.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox54, "textBox54");
+            this.textBox54.ForeColor = System.Drawing.Color.Black;
+            this.textBox54.Name = "textBox54";
+            this.textBox54.ReadOnly = true;
+            // 
+            // textBox29
+            // 
+            this.textBox29.BackColor = System.Drawing.Color.White;
+            this.textBox29.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox29, "textBox29");
+            this.textBox29.ForeColor = System.Drawing.Color.Black;
+            this.textBox29.Name = "textBox29";
+            this.textBox29.ReadOnly = true;
+            // 
+            // textBox30
+            // 
+            this.textBox30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox30.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox30, "textBox30");
+            this.textBox30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox30.Name = "textBox30";
+            this.textBox30.ReadOnly = true;
+            // 
+            // textBox31
+            // 
+            this.textBox31.BackColor = System.Drawing.Color.White;
+            this.textBox31.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox31, "textBox31");
+            this.textBox31.ForeColor = System.Drawing.Color.Black;
+            this.textBox31.Name = "textBox31";
+            this.textBox31.ReadOnly = true;
+            // 
+            // textBox32
+            // 
+            this.textBox32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox32.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox32, "textBox32");
+            this.textBox32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox32.Name = "textBox32";
+            this.textBox32.ReadOnly = true;
+            // 
+            // textBox33
+            // 
+            this.textBox33.BackColor = System.Drawing.Color.White;
+            this.textBox33.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox33, "textBox33");
+            this.textBox33.ForeColor = System.Drawing.Color.Black;
+            this.textBox33.Name = "textBox33";
+            this.textBox33.ReadOnly = true;
+            // 
+            // textBox34
+            // 
+            this.textBox34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox34.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox34, "textBox34");
+            this.textBox34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox34.Name = "textBox34";
+            this.textBox34.ReadOnly = true;
+            // 
+            // textBox35
+            // 
+            this.textBox35.BackColor = System.Drawing.Color.White;
+            this.textBox35.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox35, "textBox35");
+            this.textBox35.ForeColor = System.Drawing.Color.Black;
+            this.textBox35.Name = "textBox35";
+            this.textBox35.ReadOnly = true;
+            // 
+            // textBox36
+            // 
+            this.textBox36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox36.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox36, "textBox36");
+            this.textBox36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox36.Name = "textBox36";
+            this.textBox36.ReadOnly = true;
+            // 
+            // textBox37
+            // 
+            this.textBox37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox37.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox37, "textBox37");
+            this.textBox37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox37.Name = "textBox37";
+            this.textBox37.ReadOnly = true;
+            // 
+            // textBox38
+            // 
+            this.textBox38.BackColor = System.Drawing.Color.White;
+            this.textBox38.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox38, "textBox38");
+            this.textBox38.ForeColor = System.Drawing.Color.Black;
+            this.textBox38.Name = "textBox38";
+            this.textBox38.ReadOnly = true;
+            // 
+            // textBox41
+            // 
+            this.textBox41.BackColor = System.Drawing.Color.White;
+            this.textBox41.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox41, "textBox41");
+            this.textBox41.ForeColor = System.Drawing.Color.Black;
+            this.textBox41.Name = "textBox41";
+            this.textBox41.ReadOnly = true;
+            // 
+            // textBox42
+            // 
+            this.textBox42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox42.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox42, "textBox42");
+            this.textBox42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox42.Name = "textBox42";
+            this.textBox42.ReadOnly = true;
+            // 
+            // textBox19
+            // 
+            this.textBox19.BackColor = System.Drawing.Color.White;
+            this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox19, "textBox19");
+            this.textBox19.ForeColor = System.Drawing.Color.Black;
+            this.textBox19.Name = "textBox19";
+            this.textBox19.ReadOnly = true;
+            // 
+            // textBox25
+            // 
+            this.textBox25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox25.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox25, "textBox25");
+            this.textBox25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox25.Name = "textBox25";
+            this.textBox25.ReadOnly = true;
+            // 
+            // textBox18
+            // 
+            this.textBox18.BackColor = System.Drawing.Color.White;
+            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox18, "textBox18");
+            this.textBox18.ForeColor = System.Drawing.Color.Black;
+            this.textBox18.Name = "textBox18";
+            this.textBox18.ReadOnly = true;
+            // 
+            // textBox14
+            // 
+            this.textBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox14, "textBox14");
+            this.textBox14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            // 
+            // textBox12
+            // 
+            this.textBox12.BackColor = System.Drawing.Color.White;
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox12, "textBox12");
+            this.textBox12.ForeColor = System.Drawing.Color.Black;
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            // 
+            // textBox11
+            // 
+            this.textBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox11, "textBox11");
+            this.textBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            // 
+            // textBox15
+            // 
+            this.textBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox15, "textBox15");
+            this.textBox15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.textBox15.Name = "textBox15";
+            this.textBox15.ReadOnly = true;
             // 
             // label31
             // 
@@ -943,6 +1198,15 @@
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
+            // textBox49
+            // 
+            this.textBox49.BackColor = System.Drawing.Color.White;
+            this.textBox49.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox49, "textBox49");
+            this.textBox49.ForeColor = System.Drawing.Color.Black;
+            this.textBox49.Name = "textBox49";
+            this.textBox49.ReadOnly = true;
+            // 
             // checkBox6
             // 
             resources.ApplyResources(this.checkBox6, "checkBox6");
@@ -1006,290 +1270,12 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             // 
-            // flowLayoutPanel1
+            // pictureBox3
             // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.Controls.Add(this.textBox15);
-            this.flowLayoutPanel1.Controls.Add(this.textBox11);
-            this.flowLayoutPanel1.Controls.Add(this.textBox12);
-            this.flowLayoutPanel1.Controls.Add(this.textBox14);
-            this.flowLayoutPanel1.Controls.Add(this.textBox18);
-            this.flowLayoutPanel1.Controls.Add(this.textBox19);
-            this.flowLayoutPanel1.Controls.Add(this.textBox25);
-            this.flowLayoutPanel1.Controls.Add(this.textBox36);
-            this.flowLayoutPanel1.Controls.Add(this.textBox37);
-            this.flowLayoutPanel1.Controls.Add(this.textBox38);
-            this.flowLayoutPanel1.Controls.Add(this.textBox39);
-            this.flowLayoutPanel1.Controls.Add(this.textBox40);
-            this.flowLayoutPanel1.Controls.Add(this.textBox41);
-            this.flowLayoutPanel1.Controls.Add(this.textBox42);
-            this.flowLayoutPanel1.Controls.Add(this.textBox43);
-            this.flowLayoutPanel1.Controls.Add(this.textBox46);
-            this.flowLayoutPanel1.Controls.Add(this.textBox47);
-            this.flowLayoutPanel1.Controls.Add(this.textBox48);
-            this.flowLayoutPanel1.Controls.Add(this.textBox49);
-            this.flowLayoutPanel1.Controls.Add(this.textBox50);
-            this.flowLayoutPanel1.Controls.Add(this.textBox51);
-            this.flowLayoutPanel1.Controls.Add(this.textBox29);
-            this.flowLayoutPanel1.Controls.Add(this.textBox30);
-            this.flowLayoutPanel1.Controls.Add(this.textBox31);
-            this.flowLayoutPanel1.Controls.Add(this.textBox32);
-            this.flowLayoutPanel1.Controls.Add(this.textBox33);
-            this.flowLayoutPanel1.Controls.Add(this.textBox34);
-            this.flowLayoutPanel1.Controls.Add(this.textBox35);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // textBox15
-            // 
-            this.textBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox15, "textBox15");
-            this.textBox15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            // 
-            // textBox11
-            // 
-            this.textBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox11, "textBox11");
-            this.textBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            // 
-            // textBox12
-            // 
-            this.textBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox12, "textBox12");
-            this.textBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            // 
-            // textBox14
-            // 
-            this.textBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox14, "textBox14");
-            this.textBox14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            // 
-            // textBox18
-            // 
-            this.textBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox18, "textBox18");
-            this.textBox18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox18.Name = "textBox18";
-            this.textBox18.ReadOnly = true;
-            // 
-            // textBox19
-            // 
-            this.textBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox19, "textBox19");
-            this.textBox19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox19.Name = "textBox19";
-            this.textBox19.ReadOnly = true;
-            // 
-            // textBox25
-            // 
-            this.textBox25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox25.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox25, "textBox25");
-            this.textBox25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox25.Name = "textBox25";
-            this.textBox25.ReadOnly = true;
-            // 
-            // textBox36
-            // 
-            this.textBox36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox36.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox36, "textBox36");
-            this.textBox36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox36.Name = "textBox36";
-            this.textBox36.ReadOnly = true;
-            // 
-            // textBox37
-            // 
-            this.textBox37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox37.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox37, "textBox37");
-            this.textBox37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox37.Name = "textBox37";
-            this.textBox37.ReadOnly = true;
-            // 
-            // textBox38
-            // 
-            this.textBox38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox38.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox38, "textBox38");
-            this.textBox38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox38.Name = "textBox38";
-            this.textBox38.ReadOnly = true;
-            // 
-            // textBox39
-            // 
-            this.textBox39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox39.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox39, "textBox39");
-            this.textBox39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox39.Name = "textBox39";
-            this.textBox39.ReadOnly = true;
-            // 
-            // textBox40
-            // 
-            this.textBox40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox40.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox40, "textBox40");
-            this.textBox40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox40.Name = "textBox40";
-            this.textBox40.ReadOnly = true;
-            // 
-            // textBox41
-            // 
-            this.textBox41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox41.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox41, "textBox41");
-            this.textBox41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox41.Name = "textBox41";
-            this.textBox41.ReadOnly = true;
-            // 
-            // textBox42
-            // 
-            this.textBox42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.textBox42.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox42, "textBox42");
-            this.textBox42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.textBox42.Name = "textBox42";
-            this.textBox42.ReadOnly = true;
-            // 
-            // textBox43
-            // 
-            this.textBox43.BackColor = System.Drawing.Color.White;
-            this.textBox43.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox43, "textBox43");
-            this.textBox43.ForeColor = System.Drawing.Color.Black;
-            this.textBox43.Name = "textBox43";
-            this.textBox43.ReadOnly = true;
-            // 
-            // textBox46
-            // 
-            this.textBox46.BackColor = System.Drawing.Color.White;
-            this.textBox46.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox46, "textBox46");
-            this.textBox46.ForeColor = System.Drawing.Color.Black;
-            this.textBox46.Name = "textBox46";
-            this.textBox46.ReadOnly = true;
-            // 
-            // textBox47
-            // 
-            this.textBox47.BackColor = System.Drawing.Color.White;
-            this.textBox47.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox47, "textBox47");
-            this.textBox47.ForeColor = System.Drawing.Color.Black;
-            this.textBox47.Name = "textBox47";
-            this.textBox47.ReadOnly = true;
-            // 
-            // textBox48
-            // 
-            this.textBox48.BackColor = System.Drawing.Color.White;
-            this.textBox48.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox48, "textBox48");
-            this.textBox48.ForeColor = System.Drawing.Color.Black;
-            this.textBox48.Name = "textBox48";
-            this.textBox48.ReadOnly = true;
-            // 
-            // textBox49
-            // 
-            this.textBox49.BackColor = System.Drawing.Color.White;
-            this.textBox49.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox49, "textBox49");
-            this.textBox49.ForeColor = System.Drawing.Color.Black;
-            this.textBox49.Name = "textBox49";
-            this.textBox49.ReadOnly = true;
-            // 
-            // textBox50
-            // 
-            this.textBox50.BackColor = System.Drawing.Color.White;
-            this.textBox50.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox50, "textBox50");
-            this.textBox50.ForeColor = System.Drawing.Color.Black;
-            this.textBox50.Name = "textBox50";
-            this.textBox50.ReadOnly = true;
-            // 
-            // textBox51
-            // 
-            this.textBox51.BackColor = System.Drawing.Color.White;
-            this.textBox51.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox51, "textBox51");
-            this.textBox51.ForeColor = System.Drawing.Color.Black;
-            this.textBox51.Name = "textBox51";
-            this.textBox51.ReadOnly = true;
-            // 
-            // textBox29
-            // 
-            this.textBox29.BackColor = System.Drawing.Color.White;
-            this.textBox29.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox29, "textBox29");
-            this.textBox29.ForeColor = System.Drawing.Color.Black;
-            this.textBox29.Name = "textBox29";
-            this.textBox29.ReadOnly = true;
-            // 
-            // textBox30
-            // 
-            this.textBox30.BackColor = System.Drawing.Color.White;
-            this.textBox30.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox30, "textBox30");
-            this.textBox30.ForeColor = System.Drawing.Color.Black;
-            this.textBox30.Name = "textBox30";
-            this.textBox30.ReadOnly = true;
-            // 
-            // textBox31
-            // 
-            this.textBox31.BackColor = System.Drawing.Color.White;
-            this.textBox31.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox31, "textBox31");
-            this.textBox31.ForeColor = System.Drawing.Color.Black;
-            this.textBox31.Name = "textBox31";
-            this.textBox31.ReadOnly = true;
-            // 
-            // textBox32
-            // 
-            this.textBox32.BackColor = System.Drawing.Color.White;
-            this.textBox32.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox32, "textBox32");
-            this.textBox32.ForeColor = System.Drawing.Color.Black;
-            this.textBox32.Name = "textBox32";
-            this.textBox32.ReadOnly = true;
-            // 
-            // textBox33
-            // 
-            this.textBox33.BackColor = System.Drawing.Color.White;
-            this.textBox33.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox33, "textBox33");
-            this.textBox33.ForeColor = System.Drawing.Color.Black;
-            this.textBox33.Name = "textBox33";
-            this.textBox33.ReadOnly = true;
-            // 
-            // textBox34
-            // 
-            this.textBox34.BackColor = System.Drawing.Color.White;
-            this.textBox34.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox34, "textBox34");
-            this.textBox34.ForeColor = System.Drawing.Color.Black;
-            this.textBox34.Name = "textBox34";
-            this.textBox34.ReadOnly = true;
-            // 
-            // textBox35
-            // 
-            this.textBox35.BackColor = System.Drawing.Color.White;
-            this.textBox35.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox35, "textBox35");
-            this.textBox35.ForeColor = System.Drawing.Color.Black;
-            this.textBox35.Name = "textBox35";
-            this.textBox35.ReadOnly = true;
+            this.pictureBox3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_107__1_;
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
             // 
             // tabControl1
             // 
@@ -1301,6 +1287,21 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
+            // 
+            // label30
+            // 
+            resources.ApplyResources(this.label30, "label30");
+            this.label30.Name = "label30";
+            // 
+            // label34
+            // 
+            resources.ApplyResources(this.label34, "label34");
+            this.label34.Name = "label34";
+            // 
+            // label35
+            // 
+            resources.ApplyResources(this.label35, "label35");
+            this.label35.Name = "label35";
             // 
             // Form_Listener
             // 
@@ -1335,8 +1336,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1452,28 +1452,28 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox49;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TextBox textBox52;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox checkBox12;
+        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox36;
-        private System.Windows.Forms.TextBox textBox37;
-        private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.TextBox textBox39;
-        private System.Windows.Forms.TextBox textBox40;
         private System.Windows.Forms.TextBox textBox41;
         private System.Windows.Forms.TextBox textBox42;
-        private System.Windows.Forms.TextBox textBox43;
         private System.Windows.Forms.TextBox textBox46;
-        private System.Windows.Forms.TextBox textBox47;
         private System.Windows.Forms.TextBox textBox48;
-        private System.Windows.Forms.TextBox textBox49;
         private System.Windows.Forms.TextBox textBox50;
         private System.Windows.Forms.TextBox textBox51;
+        private System.Windows.Forms.TextBox textBox53;
+        private System.Windows.Forms.TextBox textBox54;
         private System.Windows.Forms.TextBox textBox29;
         private System.Windows.Forms.TextBox textBox30;
         private System.Windows.Forms.TextBox textBox31;
@@ -1481,11 +1481,12 @@
         private System.Windows.Forms.TextBox textBox33;
         private System.Windows.Forms.TextBox textBox34;
         private System.Windows.Forms.TextBox textBox35;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TextBox textBox52;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox12;
+        private System.Windows.Forms.TextBox textBox36;
+        private System.Windows.Forms.TextBox textBox37;
+        private System.Windows.Forms.TextBox textBox38;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label30;
     }
 }
 

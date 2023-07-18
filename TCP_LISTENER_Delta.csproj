@@ -241,6 +241,7 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="License-LGPL.txt" />
+    <None Include="Resources\Group 107 %281%29.png" />
     <None Include="Resources\Group 33.png" />
     <None Include="Resources\Group 32.png" />
     <None Include="Resources\Group 31.png" />
