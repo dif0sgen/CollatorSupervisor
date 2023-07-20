@@ -15,6 +15,7 @@ using System.Runtime.InteropServices;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
+using TCP_LISTENER_Delta.Properties;
 
 namespace TCP_LISTENER_Delta
 {
@@ -64,6 +65,13 @@ namespace TCP_LISTENER_Delta
         int Release_TMR;
         int i;
         int milliseconds = 300;
+        //alarms
+        bool Rilecart_emergency_stop;
+        bool Rilecart_missing_fin;
+        bool Collator_Missing_left;
+        bool Collator_Missing_right;
+        bool Collator_Paper_jam;
+
         bool bit1;
         bool bit2;
         bool bit3;
@@ -78,6 +86,7 @@ namespace TCP_LISTENER_Delta
         bool bit12;
         bool bit13;
         bool bit14;
+        bool run = false;
         bool BoolUp;
         bool BoolDwn;
         bool BoolCollator;
@@ -133,9 +142,7 @@ namespace TCP_LISTENER_Delta
             btnDWN.MouseEnter += btnDWN_ENTER;
             btnStart.MouseEnter += OnMouseEnterButton1;
             btnStart.MouseLeave += OnMouseLeaveButton1;
-            button5.MouseDown += SOL_Down;
-            button5.MouseUp += SOL_Up;
-            button5.MouseEnter += SOL_ENTER;
+           
 
             ///
             /// GET SAVED VALUES
@@ -159,6 +166,9 @@ namespace TCP_LISTENER_Delta
             checkBox12.Checked = Properties.Settings.Default.CollatorSave;
             checkBox11.Checked = Properties.Settings.Default.RailcartSave;
 
+
+            textBox12.Text =  @"
+" + "0";
         }
         /// 
         /// STOP
@@ -453,11 +463,11 @@ namespace TCP_LISTENER_Delta
                             bit3 = CONTROL_READ[2]; //M202
                             bit4 = CONTROL_READ[3]; //M203
                             bit5 = CONTROL_READ[4]; //M204
-                            bit6 = CONTROL_READ[5]; //M205
-                            bit7 = CONTROL_READ[6]; //M206
-                            bit8 = CONTROL_READ[7]; //M207
-                            bit9 = CONTROL_READ[8]; //M208
-                            bit10 = CONTROL_READ[9]; //M209
+                            Collator_Missing_left = CONTROL_READ[5]; //M205
+                            Collator_Missing_right = CONTROL_READ[6]; //M206
+                            Collator_Paper_jam = CONTROL_READ[7]; //M207
+                            Rilecart_emergency_stop = CONTROL_READ[8]; //M208
+                            Rilecart_missing_fin = CONTROL_READ[9]; //M209
                             bit11 = CONTROL_READ[10]; //M210
                             bit12 = CONTROL_READ[11]; //M211
                             bit13 = CONTROL_READ[12]; //M212
@@ -651,6 +661,11 @@ namespace TCP_LISTENER_Delta
         /// 
         void WriteMDBS(string name)
         {
+            string Collator1 = null;
+            string Collator2 = null;
+            string Collator3 = null;
+            string Rilecart1 = null;
+            string Rilecart2 = null;
             while (true)
             {
                 try
@@ -670,34 +685,123 @@ namespace TCP_LISTENER_Delta
 " + thisDay.ToString("T");
                         textBox6.Text = "["+ JobID + "] - [" + SchoolName + "]"+ @"
 " + "Calendar type: " + CalendarType;
-//                        textBox29.Text = "Pos: " + "1" + @"
-//" + "[" + "Month"+"]";
-//                        textBox30.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox31.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox32.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox33.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox34.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox35.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox43.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox46.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox47.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox48.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox49.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox50.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox51.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
+
+                        if (Collator_Missing_left == true)
+                        {
+                            Collator1 = "Missing left" + @"
+";
+                        }
+                        if (Collator_Missing_left == false)
+                        {
+                            Collator1 = null;
+                        }
+                        if (Collator_Missing_right == true)
+                        {
+                            Collator2 = "Missing right" + @"
+";
+                        }
+                        if (Collator_Missing_right == false)
+                        {
+                            Collator2 = null;
+                        }
+                        if (Collator_Paper_jam == true)
+                        {
+                            Collator3 = "Paper jam" + @"
+";
+                        }
+                        if (Collator_Paper_jam == false)
+                        {
+                            Collator3 = null;
+                        }
+
+                        if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true)
+                        {
+                            textBox14.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+                            textBox14.Text = Collator1 + Collator2 + Collator3;
+                            textBox14.ForeColor = System.Drawing.Color.White;
+                        }
+                        if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false)
+                        {
+                            textBox14.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
+                            textBox14.Text = @"
+" + "RUN";
+                            textBox14.ForeColor = System.Drawing.Color.Black;
+                        }
+                        ////////////////////////////////////////////////////
+                        if (Rilecart_emergency_stop == true)
+                        {
+                            Rilecart1 = "Emergency stop" + @"
+";
+                        }
+                        if (Rilecart_emergency_stop == false)
+                        {
+                            Rilecart1 = null;
+                        }
+                        if (Rilecart_missing_fin == true)
+                        {
+                            Rilecart2 = "Missing fin" + @"
+";
+                        }
+                        if (Rilecart_missing_fin == false)
+                        {
+                            Rilecart2 = null;
+                        }
+
+                        if (Rilecart_emergency_stop == true || Rilecart_missing_fin == true)
+                        {
+                            textBox11.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+                            textBox11.Text = Rilecart1 + Rilecart2;
+                            textBox11.ForeColor = System.Drawing.Color.White;
+                        }
+                        if (Rilecart_emergency_stop == false && Rilecart_missing_fin == false)
+                        {
+                            textBox11.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
+                            textBox11.Text = @"
+" + "RUN";
+                            textBox11.ForeColor = System.Drawing.Color.Black;
+                        }
+
+                        if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || Rilecart_emergency_stop == true || Rilecart_missing_fin == true)
+                        {
+                            pictureBox3.Image = Resources.Rectangle_146__1_;
+                        }
+                        else if (run == true && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false)
+                        {
+                                pictureBox3.Image = Resources.Rectangle_147__2_;
+                            
+                        }
+                        else if (run == false && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false)
+                        {
+                                pictureBox3.Image = null;
+                            
+                        }
+
+                        //                        textBox30.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox31.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox32.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox33.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox34.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox35.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox43.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox46.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox47.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox48.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox49.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox50.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox51.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
 
                         if (modbus.Connected == false)
                         {
@@ -722,34 +826,121 @@ namespace TCP_LISTENER_Delta
 " + thisDay.ToString("T");
                         textBox6.Text = "[" + JobID + "] - [" + SchoolName + "]" + @"
 " + "Calendar type: " + CalendarType;
-//                        textBox29.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox30.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox31.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox32.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox33.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox34.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox35.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox43.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox46.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox47.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox48.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox49.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox50.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
-//                        textBox51.Text = "Pos: " + "1" + @"
-//" + "[" + "Month" + "]";
+
+                        if (Collator_Missing_left == true)
+                        {
+                            Collator1 = "Missing left" + @"
+";
+                        }
+                        if (Collator_Missing_left == false)
+                        {
+                            Collator1 = null;
+                        }
+                        if (Collator_Missing_right == true)
+                        {
+                            Collator2 = "Missing right" + @"
+";
+                        }
+                        if (Collator_Missing_right == false)
+                        {
+                            Collator2 = null;
+                        }
+                        if (Collator_Paper_jam == true)
+                        {
+                            Collator3 = "Paper jam" + @"
+";
+                        }
+                        if (Collator_Paper_jam == false)
+                        {
+                            Collator3 = null;
+                        }
+                        
+                        if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true)
+                        {
+                            textBox14.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+                            textBox14.Text = Collator1 + Collator2 + Collator3;
+                            textBox14.ForeColor = System.Drawing.Color.White;
+                        }
+                        if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false)
+                        {
+                            textBox14.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
+                            textBox14.Text = @"
+" + "RUN";
+                            textBox14.ForeColor = System.Drawing.Color.Black;
+                        }
+                        ////////////////////////////////////////////////////
+                        if (Rilecart_emergency_stop == true)
+                        {
+                            Rilecart1 = "Emergency stop" + @"
+";
+                        }
+                        if (Rilecart_emergency_stop == false)
+                        {
+                            Rilecart1 = null;
+                        }
+                        if (Rilecart_missing_fin == true)
+                        {
+                            Rilecart2 = "Missing fin" + @"
+";
+                        }
+                        if (Rilecart_missing_fin == false)
+                        {
+                            Rilecart2 = null;
+                        }
+                        
+                        if (Rilecart_emergency_stop == true || Rilecart_missing_fin == true)
+                        {
+                            textBox11.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+                            textBox11.Text = Rilecart1 + Rilecart2;
+                            textBox11.ForeColor = System.Drawing.Color.White;
+                        }
+                        if (Rilecart_emergency_stop == false && Rilecart_missing_fin == false)
+                        {
+                            textBox11.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
+                            textBox11.Text = @"
+" + "RUN";
+                            textBox11.ForeColor = System.Drawing.Color.Black;
+                        }
+
+                        if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || Rilecart_emergency_stop == true || Rilecart_missing_fin == true)
+                        {
+                            pictureBox3.Image = Resources.Rectangle_146__1_;
+                        }
+                        else if (run == true && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false)
+                        {
+                                pictureBox3.Image = Resources.Rectangle_147__2_;
+                        }
+                        else if (run == false && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false)
+                        {
+                                pictureBox3.Image = null;
+                        }
+
+                        //                        textBox30.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox31.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox32.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox33.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox34.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox35.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox43.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox46.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox47.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox48.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox49.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox50.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
+                        //                        textBox51.Text = "Pos: " + "1" + @"
+                        //" + "[" + "Month" + "]";
 
 
                         if (modbus.Connected == false)
@@ -1210,10 +1401,7 @@ namespace TCP_LISTENER_Delta
                 MessageBox.Show("PLC disabled");
             }
         }
-        private void SOL_ENTER(object sender, EventArgs e)
-        {
-            button5.BackColor = System.Drawing.Color.White;
-        }
+        
         private void SOL_Down(object sender, EventArgs e)
         {
           //  if (modbus.Connected == true)
@@ -1314,6 +1502,16 @@ namespace TCP_LISTENER_Delta
             {
                 return;
             }
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            run = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            run = false;
         }
     }
 }
