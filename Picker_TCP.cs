@@ -86,6 +86,9 @@ namespace TCP_LISTENER_Delta
         bool bit12;
         bool bit13;
         bool bit14;
+        bool angle0;
+        bool angle90;
+        bool angle180;
         bool run = false;
         bool BoolUp;
         bool BoolDwn;
@@ -402,23 +405,23 @@ namespace TCP_LISTENER_Delta
                         WORD_WRITE[20] = Release_TMR; //Release_TMR
                         WORD_WRITE[54] = Hi;
 
-                        CONTROL_WRITE[0] = checkBox1.Checked; //M100
-                        CONTROL_WRITE[1] = checkBox2.Checked; //M101
-                        CONTROL_WRITE[2] = checkBox3.Checked; //M102
-                        CONTROL_WRITE[3] = checkBox4.Checked; //M103
-                        CONTROL_WRITE[4] = checkBox5.Checked; //M104
-                        CONTROL_WRITE[5] = checkBox6.Checked; //M105
-                        CONTROL_WRITE[6] = checkBox7.Checked; //M106
-                        CONTROL_WRITE[7] = checkBox8.Checked; //M107
-                        CONTROL_WRITE[8] = checkBox9.Checked; //M108
-                        CONTROL_WRITE[9] = checkBox10.Checked; //M109
-                        CONTROL_WRITE[10] = BoolUp; //M110
-                        CONTROL_WRITE[11] = BoolDwn; //M111
-                        CONTROL_WRITE[12] = BoolCollator; //M112
-                        CONTROL_WRITE[13] = BoolRailcart; //M113
+                        CONTROL_WRITE[0] = checkBox1.Checked; //M1000
+                        CONTROL_WRITE[1] = checkBox2.Checked; //M1001
+                        CONTROL_WRITE[2] = angle0; //M1002
+                        CONTROL_WRITE[3] = angle90; //M1003
+                        CONTROL_WRITE[4] = angle180; //M1004
+                        CONTROL_WRITE[5] = checkBox6.Checked; //M1005
+                        CONTROL_WRITE[6] = checkBox7.Checked; //M1006
+                        CONTROL_WRITE[7] = checkBox8.Checked; //M1007
+                        CONTROL_WRITE[8] = checkBox9.Checked; //M1008
+                        CONTROL_WRITE[9] = checkBox10.Checked; //M1009
+                        CONTROL_WRITE[10] = BoolUp; //M1010
+                        CONTROL_WRITE[11] = BoolDwn; //M1011
+                        CONTROL_WRITE[12] = BoolCollator; //M1012
+                        CONTROL_WRITE[13] = BoolRailcart; //M1013
                         try
                         {
-                            modbus.WriteMultipleCoils(100, CONTROL_WRITE); // WRITE ALL BITS
+                            modbus.WriteMultipleCoils(1000, CONTROL_WRITE); // WRITE ALL BITS
                         }
 
                         catch (Exception ex)
@@ -451,27 +454,27 @@ namespace TCP_LISTENER_Delta
                             //Thread.Sleep(milliseconds);
                             try
                             {
-                                CONTROL_READ = modbus.ReadCoils(200, 14);
+                                CONTROL_READ = modbus.ReadCoils(2000, 14);
                             }
                             
                             catch (Exception ex)
                             {
                                 MessageBox.Show("Read bits MDBS: " + ex.Message);
                             }
-                            bit1 = CONTROL_READ[0]; //M200
-                            bit2 = CONTROL_READ[1]; //M201
-                            bit3 = CONTROL_READ[2]; //M202
-                            bit4 = CONTROL_READ[3]; //M203
-                            bit5 = CONTROL_READ[4]; //M204
-                            Collator_Missing_left = CONTROL_READ[5]; //M205
-                            Collator_Missing_right = CONTROL_READ[6]; //M206
-                            Collator_Paper_jam = CONTROL_READ[7]; //M207
-                            Rilecart_emergency_stop = CONTROL_READ[8]; //M208
-                            Rilecart_missing_fin = CONTROL_READ[9]; //M209
-                            bit11 = CONTROL_READ[10]; //M210
-                            bit12 = CONTROL_READ[11]; //M211
-                            bit13 = CONTROL_READ[12]; //M212
-                            bit14 = CONTROL_READ[13]; //M213
+                            bit1 = CONTROL_READ[0]; //M2000
+                            bit2 = CONTROL_READ[1]; //M2001
+                            bit3 = CONTROL_READ[2]; //M2002
+                            bit4 = CONTROL_READ[3]; //M2003
+                            bit5 = CONTROL_READ[4]; //M2004
+                            Collator_Missing_left = CONTROL_READ[5]; //M2005
+                            Collator_Missing_right = CONTROL_READ[6]; //M2006
+                            Collator_Paper_jam = CONTROL_READ[7]; //M2007
+                            Rilecart_emergency_stop = CONTROL_READ[8]; //M2008
+                            Rilecart_missing_fin = CONTROL_READ[9]; //M2009
+                            bit11 = CONTROL_READ[10]; //M2010
+                            bit12 = CONTROL_READ[11]; //M2011
+                            bit13 = CONTROL_READ[12]; //M2012
+                            bit14 = CONTROL_READ[13]; //M2013
 
 
                             if (CONTROL_READ[0] == true) // GREEN UP
@@ -1512,6 +1515,28 @@ namespace TCP_LISTENER_Delta
         private void button4_Click(object sender, EventArgs e)
         {
             run = false;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox1.Text == "0")
+            {
+                angle0 = true;
+                angle90 = false;
+                angle180 = false;
+            }
+            if (listBox1.Text == "90")
+            {
+                angle0 = false;
+                angle90 = true;
+                angle180 = false;
+            }
+            if (listBox1.Text == "180")
+            {
+                angle0 = false;
+                angle90 = false;
+                angle180 = true;
+            }
         }
     }
 }
