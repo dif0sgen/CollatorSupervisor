@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TCP_LISTENER_Delta.Properties {
+namespace CollatorSupervisor.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -20,42 +20,6 @@ namespace TCP_LISTENER_Delta.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ACC_Y_MAN {
-            get {
-                return ((string)(this["ACC_Y_MAN"]));
-            }
-            set {
-                this["ACC_Y_MAN"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DEC_Y_MAN {
-            get {
-                return ((string)(this["DEC_Y_MAN"]));
-            }
-            set {
-                this["DEC_Y_MAN"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ManSpdSave {
-            get {
-                return ((int)(this["ManSpdSave"]));
-            }
-            set {
-                this["ManSpdSave"] = value;
             }
         }
         
@@ -97,78 +61,6 @@ namespace TCP_LISTENER_Delta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SpeedX1 {
-            get {
-                return ((string)(this["SpeedX1"]));
-            }
-            set {
-                this["SpeedX1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SpeedX2 {
-            get {
-                return ((string)(this["SpeedX2"]));
-            }
-            set {
-                this["SpeedX2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SpeedY1 {
-            get {
-                return ((string)(this["SpeedY1"]));
-            }
-            set {
-                this["SpeedY1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SpeedY2 {
-            get {
-                return ((string)(this["SpeedY2"]));
-            }
-            set {
-                this["SpeedY2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int SpeedPERC {
-            get {
-                return ((int)(this["SpeedPERC"]));
-            }
-            set {
-                this["SpeedPERC"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int SPEED_Y_MAN {
-            get {
-                return ((int)(this["SPEED_Y_MAN"]));
-            }
-            set {
-                this["SPEED_Y_MAN"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool RailcartSave {
             get {
@@ -176,78 +68,6 @@ namespace TCP_LISTENER_Delta.Properties {
             }
             set {
                 this["RailcartSave"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string POS1 {
-            get {
-                return ((string)(this["POS1"]));
-            }
-            set {
-                this["POS1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string POS2 {
-            get {
-                return ((string)(this["POS2"]));
-            }
-            set {
-                this["POS2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string POS3 {
-            get {
-                return ((string)(this["POS3"]));
-            }
-            set {
-                this["POS3"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string GrabTMR {
-            get {
-                return ((string)(this["GrabTMR"]));
-            }
-            set {
-                this["GrabTMR"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ScanTMR {
-            get {
-                return ((string)(this["ScanTMR"]));
-            }
-            set {
-                this["ScanTMR"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ReleaseTMR {
-            get {
-                return ((string)(this["ReleaseTMR"]));
-            }
-            set {
-                this["ReleaseTMR"] = value;
             }
         }
         
@@ -283,6 +103,54 @@ namespace TCP_LISTENER_Delta.Properties {
             }
             set {
                 this["Height"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string StresholdJanuary {
+            get {
+                return ((string)(this["StresholdJanuary"]));
+            }
+            set {
+                this["StresholdJanuary"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string StresholdFebruary {
+            get {
+                return ((string)(this["StresholdFebruary"]));
+            }
+            set {
+                this["StresholdFebruary"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SadtresholdJanuary {
+            get {
+                return ((int)(this["SadtresholdJanuary"]));
+            }
+            set {
+                this["SadtresholdJanuary"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SadtresholdFebruary {
+            get {
+                return ((int)(this["SadtresholdFebruary"]));
+            }
+            set {
+                this["SadtresholdFebruary"] = value;
             }
         }
     }
