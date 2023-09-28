@@ -94,6 +94,7 @@ namespace CollatorSupervisor
         bool Collator_Paper_jam;
         bool Collator_bypass;
         bool Rotation_paper_jam;
+        bool Rilecart_run;
 
 
         bool bit1;
@@ -403,7 +404,7 @@ namespace CollatorSupervisor
                             Rilecart_bypass = CONTROL_READ[13]; //M2013
                             Rotation_paper_jam = CONTROL_READ[14]; //M2014
                             bit2 = CONTROL_READ[15]; //M2015
-                            //Rotator_paper_jam = CONTROL_READ[17];
+                            Rilecart_run = CONTROL_READ[17]; //M2017
 
 
 
@@ -716,9 +717,9 @@ namespace CollatorSupervisor
 " + "Calendar type: " + CalendarType;
 
 
-               RunStat1 = "RUN";
-               RunStat2 = "RUN";
-               RunStat3 = "RUN";
+               RunStat1 = "READY";
+               RunStat2 = "READY";
+               RunStat3 = "READY";
 
             //else if (run == false)
             //{
@@ -860,14 +861,14 @@ namespace CollatorSupervisor
                 textBox11.Text = Rilecart1 + Rilecart2 + Rilecart3 + Rilecart4;
                 textBox11.ForeColor = System.Drawing.Color.White;
             }
-//            if (Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
-//            {
-//                textBox11.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
-//                textBox11.Text = Rilecart4 + @"
-//" + RunStat1;
-//                textBox11.ForeColor = System.Drawing.Color.Black;
-//            }
-            if (Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
+            if (Rilecart_run == true && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
+            {
+                textBox11.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
+                textBox11.Text = Rilecart4 + @"
+" + "RILECART RUN";
+                textBox11.ForeColor = System.Drawing.Color.Black;
+            }
+            if (Rilecart_run == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
             {
                 textBox11.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
                 textBox11.Text = Rilecart4 + @"
