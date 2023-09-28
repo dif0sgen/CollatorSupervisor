@@ -730,23 +730,51 @@ namespace CollatorSupervisor
             {
                 Collator1 = "Missing left" + @"
 ";
-                flowLayoutPanel1.BackgroundImage = Resources.Group_111;
+                flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+                label1.ForeColor = System.Drawing.Color.White;
+                label2.ForeColor = System.Drawing.Color.White;
+                label3.ForeColor = System.Drawing.Color.White;
+                label4.ForeColor = System.Drawing.Color.White;
+                label6.ForeColor = System.Drawing.Color.White;
+                label7.ForeColor = System.Drawing.Color.White;
+                label15.ForeColor = System.Drawing.Color.White;
+                label16.ForeColor = System.Drawing.Color.White;
             }
             if (Collator_Missing_left == false)
             {
                 Collator1 = null;
-                flowLayoutPanel1.BackgroundImage = null;
+                flowLayoutPanel1.BackColor = Color.White;
+                label1.ForeColor = System.Drawing.Color.Gray;
+                label2.ForeColor = System.Drawing.Color.Gray;
+                label3.ForeColor = System.Drawing.Color.Gray;
+                label4.ForeColor = System.Drawing.Color.Gray;
+                label6.ForeColor = System.Drawing.Color.Gray;
+                label7.ForeColor = System.Drawing.Color.Gray;
+                label15.ForeColor = System.Drawing.Color.Gray;
+                label16.ForeColor = System.Drawing.Color.Gray;
             }
             if (Collator_Missing_right == true)
             {
                 Collator2 = "Missing right" + @"
 ";
-                flowLayoutPanel3.BackgroundImage = Resources.Group_112;
+                flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+                label26.ForeColor = System.Drawing.Color.White;
+                label30.ForeColor = System.Drawing.Color.White;
+                label33.ForeColor = System.Drawing.Color.White;
+                label34.ForeColor = System.Drawing.Color.White;
+                label35.ForeColor = System.Drawing.Color.White;
+                label36.ForeColor = System.Drawing.Color.White;
             }
             if (Collator_Missing_right == false)
             {
-                Collator2 = null;
-               flowLayoutPanel3.BackgroundImage = null;
+                Collator2 = null; 
+                flowLayoutPanel3.BackColor = Color.White;
+                label26.ForeColor = System.Drawing.Color.Gray;
+                label30.ForeColor = System.Drawing.Color.Gray;
+                label33.ForeColor = System.Drawing.Color.Gray;
+                label34.ForeColor = System.Drawing.Color.Gray;
+                label35.ForeColor = System.Drawing.Color.Gray;
+                label36.ForeColor = System.Drawing.Color.Gray;
             }
             if (Collator_Paper_jam == true)
             {

@@ -88,12 +88,6 @@ namespace CollatorSupervisor
             this.textBox35 = new System.Windows.Forms.TextBox();
             this.textBox36 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox90 = new System.Windows.Forms.TextBox();
-            this.textBox91 = new System.Windows.Forms.TextBox();
-            this.textBox92 = new System.Windows.Forms.TextBox();
-            this.textBox93 = new System.Windows.Forms.TextBox();
-            this.textBox94 = new System.Windows.Forms.TextBox();
-            this.textBox95 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
@@ -116,14 +110,14 @@ namespace CollatorSupervisor
             this.textBox39 = new System.Windows.Forms.TextBox();
             this.textBox40 = new System.Windows.Forms.TextBox();
             this.textBox57 = new System.Windows.Forms.TextBox();
-            this.textBox70 = new System.Windows.Forms.TextBox();
-            this.textBox71 = new System.Windows.Forms.TextBox();
-            this.textBox69 = new System.Windows.Forms.TextBox();
-            this.textBox72 = new System.Windows.Forms.TextBox();
-            this.textBox78 = new System.Windows.Forms.TextBox();
-            this.textBox73 = new System.Windows.Forms.TextBox();
-            this.textBox68 = new System.Windows.Forms.TextBox();
-            this.textBox74 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.imageBox1 = new Emgu.CV.UI.ImageBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -142,8 +136,14 @@ namespace CollatorSupervisor
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             Speed = new System.Windows.Forms.Label();
             label27 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -160,8 +160,8 @@ namespace CollatorSupervisor
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Speed
@@ -545,18 +545,19 @@ namespace CollatorSupervisor
             // flowLayoutPanel3
             // 
             resources.ApplyResources(this.flowLayoutPanel3, "flowLayoutPanel3");
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel3.Controls.Add(this.textBox32);
             this.flowLayoutPanel3.Controls.Add(this.textBox33);
             this.flowLayoutPanel3.Controls.Add(this.textBox34);
             this.flowLayoutPanel3.Controls.Add(this.textBox35);
             this.flowLayoutPanel3.Controls.Add(this.textBox36);
             this.flowLayoutPanel3.Controls.Add(this.textBox15);
-            this.flowLayoutPanel3.Controls.Add(this.textBox90);
-            this.flowLayoutPanel3.Controls.Add(this.textBox91);
-            this.flowLayoutPanel3.Controls.Add(this.textBox92);
-            this.flowLayoutPanel3.Controls.Add(this.textBox93);
-            this.flowLayoutPanel3.Controls.Add(this.textBox94);
-            this.flowLayoutPanel3.Controls.Add(this.textBox95);
+            this.flowLayoutPanel3.Controls.Add(this.label26);
+            this.flowLayoutPanel3.Controls.Add(this.label30);
+            this.flowLayoutPanel3.Controls.Add(this.label33);
+            this.flowLayoutPanel3.Controls.Add(this.label34);
+            this.flowLayoutPanel3.Controls.Add(this.label35);
+            this.flowLayoutPanel3.Controls.Add(this.label36);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             // 
             // textBox32
@@ -612,60 +613,6 @@ namespace CollatorSupervisor
             this.textBox15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
-            // 
-            // textBox90
-            // 
-            this.textBox90.BackColor = System.Drawing.Color.White;
-            this.textBox90.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox90, "textBox90");
-            this.textBox90.ForeColor = System.Drawing.Color.Black;
-            this.textBox90.Name = "textBox90";
-            this.textBox90.ReadOnly = true;
-            // 
-            // textBox91
-            // 
-            this.textBox91.BackColor = System.Drawing.Color.White;
-            this.textBox91.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox91, "textBox91");
-            this.textBox91.ForeColor = System.Drawing.Color.Black;
-            this.textBox91.Name = "textBox91";
-            this.textBox91.ReadOnly = true;
-            // 
-            // textBox92
-            // 
-            this.textBox92.BackColor = System.Drawing.Color.White;
-            this.textBox92.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox92, "textBox92");
-            this.textBox92.ForeColor = System.Drawing.Color.Black;
-            this.textBox92.Name = "textBox92";
-            this.textBox92.ReadOnly = true;
-            // 
-            // textBox93
-            // 
-            this.textBox93.BackColor = System.Drawing.Color.White;
-            this.textBox93.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox93, "textBox93");
-            this.textBox93.ForeColor = System.Drawing.Color.Black;
-            this.textBox93.Name = "textBox93";
-            this.textBox93.ReadOnly = true;
-            // 
-            // textBox94
-            // 
-            this.textBox94.BackColor = System.Drawing.Color.White;
-            this.textBox94.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox94, "textBox94");
-            this.textBox94.ForeColor = System.Drawing.Color.Black;
-            this.textBox94.Name = "textBox94";
-            this.textBox94.ReadOnly = true;
-            // 
-            // textBox95
-            // 
-            this.textBox95.BackColor = System.Drawing.Color.White;
-            this.textBox95.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox95, "textBox95");
-            this.textBox95.ForeColor = System.Drawing.Color.Black;
-            this.textBox95.Name = "textBox95";
-            this.textBox95.ReadOnly = true;
             // 
             // textBox1
             // 
@@ -763,14 +710,14 @@ namespace CollatorSupervisor
             this.flowLayoutPanel1.Controls.Add(this.textBox39);
             this.flowLayoutPanel1.Controls.Add(this.textBox40);
             this.flowLayoutPanel1.Controls.Add(this.textBox57);
-            this.flowLayoutPanel1.Controls.Add(this.textBox70);
-            this.flowLayoutPanel1.Controls.Add(this.textBox71);
-            this.flowLayoutPanel1.Controls.Add(this.textBox69);
-            this.flowLayoutPanel1.Controls.Add(this.textBox72);
-            this.flowLayoutPanel1.Controls.Add(this.textBox78);
-            this.flowLayoutPanel1.Controls.Add(this.textBox73);
-            this.flowLayoutPanel1.Controls.Add(this.textBox68);
-            this.flowLayoutPanel1.Controls.Add(this.textBox74);
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.label4);
+            this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.label7);
+            this.flowLayoutPanel1.Controls.Add(this.label15);
+            this.flowLayoutPanel1.Controls.Add(this.label16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // textBox62
@@ -845,77 +792,45 @@ namespace CollatorSupervisor
             this.textBox57.Name = "textBox57";
             this.textBox57.ReadOnly = true;
             // 
-            // textBox70
+            // label1
             // 
-            this.textBox70.BackColor = System.Drawing.Color.White;
-            this.textBox70.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox70, "textBox70");
-            this.textBox70.ForeColor = System.Drawing.Color.Black;
-            this.textBox70.Name = "textBox70";
-            this.textBox70.ReadOnly = true;
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
-            // textBox71
+            // label2
             // 
-            this.textBox71.BackColor = System.Drawing.Color.White;
-            this.textBox71.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox71, "textBox71");
-            this.textBox71.ForeColor = System.Drawing.Color.Black;
-            this.textBox71.Name = "textBox71";
-            this.textBox71.ReadOnly = true;
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
             // 
-            // textBox69
+            // label3
             // 
-            this.textBox69.BackColor = System.Drawing.Color.White;
-            this.textBox69.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox69, "textBox69");
-            this.textBox69.ForeColor = System.Drawing.Color.Black;
-            this.textBox69.Name = "textBox69";
-            this.textBox69.ReadOnly = true;
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
             // 
-            // textBox72
+            // label4
             // 
-            this.textBox72.BackColor = System.Drawing.Color.White;
-            this.textBox72.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox72, "textBox72");
-            this.textBox72.ForeColor = System.Drawing.Color.Black;
-            this.textBox72.Name = "textBox72";
-            this.textBox72.ReadOnly = true;
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
             // 
-            // textBox78
+            // label6
             // 
-            this.textBox78.BackColor = System.Drawing.Color.White;
-            this.textBox78.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox78, "textBox78");
-            this.textBox78.ForeColor = System.Drawing.Color.Black;
-            this.textBox78.Name = "textBox78";
-            this.textBox78.ReadOnly = true;
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
             // 
-            // textBox73
+            // label7
             // 
-            this.textBox73.BackColor = System.Drawing.Color.White;
-            this.textBox73.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox73, "textBox73");
-            this.textBox73.ForeColor = System.Drawing.Color.Black;
-            this.textBox73.Name = "textBox73";
-            this.textBox73.ReadOnly = true;
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
             // 
-            // textBox68
+            // label15
             // 
-            this.textBox68.BackColor = System.Drawing.Color.White;
-            this.textBox68.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox68, "textBox68");
-            this.textBox68.ForeColor = System.Drawing.Color.Black;
-            this.textBox68.Name = "textBox68";
-            this.textBox68.ReadOnly = true;
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
             // 
-            // textBox74
+            // label16
             // 
-            this.textBox74.BackColor = System.Drawing.Color.White;
-            this.textBox74.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox74, "textBox74");
-            this.textBox74.ForeColor = System.Drawing.Color.Black;
-            this.textBox74.Name = "textBox74";
-            this.textBox74.ReadOnly = true;
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
             // 
             // imageBox1
             // 
@@ -1015,6 +930,12 @@ namespace CollatorSupervisor
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox3
+            // 
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -1025,11 +946,35 @@ namespace CollatorSupervisor
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
-            // pictureBox3
+            // label26
             // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
+            resources.ApplyResources(this.label26, "label26");
+            this.label26.Name = "label26";
+            // 
+            // label30
+            // 
+            resources.ApplyResources(this.label30, "label30");
+            this.label30.Name = "label30";
+            // 
+            // label33
+            // 
+            resources.ApplyResources(this.label33, "label33");
+            this.label33.Name = "label33";
+            // 
+            // label34
+            // 
+            resources.ApplyResources(this.label34, "label34");
+            this.label34.Name = "label34";
+            // 
+            // label35
+            // 
+            resources.ApplyResources(this.label35, "label35");
+            this.label35.Name = "label35";
+            // 
+            // label36
+            // 
+            resources.ApplyResources(this.label36, "label36");
+            this.label36.Name = "label36";
             // 
             // Form_Listener
             // 
@@ -1067,8 +1012,8 @@ namespace CollatorSupervisor
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1112,12 +1057,6 @@ namespace CollatorSupervisor
         private TextBox textBox35;
         private TextBox textBox36;
         private TextBox textBox15;
-        private TextBox textBox90;
-        private TextBox textBox91;
-        private TextBox textBox92;
-        private TextBox textBox93;
-        private TextBox textBox94;
-        private TextBox textBox95;
         private TextBox textBox1;
         private TextBox textBox12;
         private TextBox textBox14;
@@ -1132,7 +1071,6 @@ namespace CollatorSupervisor
         private Label label12;
         private Button button4;
         private FlowLayoutPanel flowLayoutPanel1;
-        private TextBox textBox62;
         private TextBox textBox43;
         private TextBox textBox47;
         private TextBox textBox64;
@@ -1140,14 +1078,6 @@ namespace CollatorSupervisor
         private TextBox textBox39;
         private TextBox textBox40;
         private TextBox textBox57;
-        private TextBox textBox70;
-        private TextBox textBox71;
-        private TextBox textBox69;
-        private TextBox textBox72;
-        private TextBox textBox78;
-        private TextBox textBox73;
-        private TextBox textBox68;
-        private TextBox textBox74;
         private Emgu.CV.UI.ImageBox imageBox1;
         private Label label31;
         private Label label32;
@@ -1184,6 +1114,21 @@ namespace CollatorSupervisor
         private Label lblAdress;
         private TextBox txtPort;
         private PictureBox pictureBox3;
+        private Label label2;
+        private TextBox textBox62;
+        private Label label1;
+        private Label label3;
+        private Label label4;
+        private Label label6;
+        private Label label7;
+        private Label label15;
+        private Label label16;
+        private Label label26;
+        private Label label30;
+        private Label label33;
+        private Label label34;
+        private Label label35;
+        private Label label36;
     }
 }
 
