@@ -52,8 +52,14 @@ namespace CollatorSupervisor
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.tmUpdateState = new System.Windows.Forms.Timer(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPort = new System.Windows.Forms.Label();
+            this.txtIPAdress = new System.Windows.Forms.TextBox();
+            this.lblAdress = new System.Windows.Forms.Label();
+            this.txtPort = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label29 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -92,9 +98,6 @@ namespace CollatorSupervisor
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
@@ -139,20 +142,16 @@ namespace CollatorSupervisor
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.txtPort = new System.Windows.Forms.TextBox();
-            this.lblAdress = new System.Windows.Forms.Label();
-            this.txtIPAdress = new System.Windows.Forms.TextBox();
-            this.lblPort = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             Speed = new System.Windows.Forms.Label();
             label27 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -161,10 +160,8 @@ namespace CollatorSupervisor
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // Speed
@@ -287,6 +284,21 @@ namespace CollatorSupervisor
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.checkBox12);
+            this.groupBox2.Controls.Add(this.checkBox11);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // checkBox12
+            // 
+            resources.ApplyResources(this.checkBox12, "checkBox12");
+            this.checkBox12.Name = "checkBox12";
+            this.checkBox12.UseVisualStyleBackColor = true;
+            // 
             // checkBox11
             // 
             resources.ApplyResources(this.checkBox11, "checkBox11");
@@ -294,11 +306,38 @@ namespace CollatorSupervisor
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.UseVisualStyleBackColor = false;
             // 
-            // checkBox12
+            // groupBox1
             // 
-            resources.ApplyResources(this.checkBox12, "checkBox12");
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.lblPort);
+            this.groupBox1.Controls.Add(this.txtIPAdress);
+            this.groupBox1.Controls.Add(this.lblAdress);
+            this.groupBox1.Controls.Add(this.txtPort);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // lblPort
+            // 
+            resources.ApplyResources(this.lblPort, "lblPort");
+            this.lblPort.Name = "lblPort";
+            // 
+            // txtIPAdress
+            // 
+            resources.ApplyResources(this.txtIPAdress, "txtIPAdress");
+            this.txtIPAdress.Name = "txtIPAdress";
+            this.txtIPAdress.TextChanged += new System.EventHandler(this.txtIPAdress_TextChanged);
+            // 
+            // lblAdress
+            // 
+            resources.ApplyResources(this.lblAdress, "lblAdress");
+            this.lblAdress.Name = "lblAdress";
+            // 
+            // txtPort
+            // 
+            resources.ApplyResources(this.txtPort, "txtPort");
+            this.txtPort.Name = "txtPort";
+            this.txtPort.TextChanged += new System.EventHandler(this.txtPort_TextChanged);
             // 
             // tabPage2
             // 
@@ -401,9 +440,6 @@ namespace CollatorSupervisor
             this.tabPage1.Controls.Add(this.textBox12);
             this.tabPage1.Controls.Add(this.textBox14);
             this.tabPage1.Controls.Add(this.textBox11);
-            this.tabPage1.Controls.Add(this.textBox10);
-            this.tabPage1.Controls.Add(this.textBox8);
-            this.tabPage1.Controls.Add(this.textBox7);
             this.tabPage1.Controls.Add(this.textBox6);
             this.tabPage1.Controls.Add(this.label48);
             this.tabPage1.Controls.Add(this.label47);
@@ -658,21 +694,6 @@ namespace CollatorSupervisor
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.textBox11, "textBox11");
             this.textBox11.Name = "textBox11";
-            // 
-            // textBox10
-            // 
-            resources.ApplyResources(this.textBox10, "textBox10");
-            this.textBox10.Name = "textBox10";
-            // 
-            // textBox8
-            // 
-            resources.ApplyResources(this.textBox8, "textBox8");
-            this.textBox8.Name = "textBox8";
-            // 
-            // textBox7
-            // 
-            resources.ApplyResources(this.textBox7, "textBox7");
-            this.textBox7.Name = "textBox7";
             // 
             // textBox6
             // 
@@ -994,12 +1015,6 @@ namespace CollatorSupervisor
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
-            // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -1010,47 +1025,11 @@ namespace CollatorSupervisor
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
-            // txtPort
+            // pictureBox3
             // 
-            resources.ApplyResources(this.txtPort, "txtPort");
-            this.txtPort.Name = "txtPort";
-            this.txtPort.TextChanged += new System.EventHandler(this.txtPort_TextChanged);
-            // 
-            // lblAdress
-            // 
-            resources.ApplyResources(this.lblAdress, "lblAdress");
-            this.lblAdress.Name = "lblAdress";
-            // 
-            // txtIPAdress
-            // 
-            resources.ApplyResources(this.txtIPAdress, "txtIPAdress");
-            this.txtIPAdress.Name = "txtIPAdress";
-            this.txtIPAdress.TextChanged += new System.EventHandler(this.txtIPAdress_TextChanged);
-            // 
-            // lblPort
-            // 
-            resources.ApplyResources(this.lblPort, "lblPort");
-            this.lblPort.Name = "lblPort";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.lblPort);
-            this.groupBox1.Controls.Add(this.txtIPAdress);
-            this.groupBox1.Controls.Add(this.lblAdress);
-            this.groupBox1.Controls.Add(this.txtPort);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.checkBox12);
-            this.groupBox2.Controls.Add(this.checkBox11);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
             // 
             // Form_Listener
             // 
@@ -1070,6 +1049,10 @@ namespace CollatorSupervisor
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1084,12 +1067,8 @@ namespace CollatorSupervisor
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1143,9 +1122,6 @@ namespace CollatorSupervisor
         private TextBox textBox12;
         private TextBox textBox14;
         private TextBox textBox11;
-        private TextBox textBox10;
-        private TextBox textBox8;
-        private TextBox textBox7;
         private TextBox textBox6;
         private Label label48;
         private Label label47;
@@ -1190,7 +1166,6 @@ namespace CollatorSupervisor
         private CheckBox checkBox6;
         private CheckBox checkBox2;
         private CheckBox checkBox1;
-        private PictureBox pictureBox3;
         private TabControl tabControl1;
         private FlowLayoutPanel flowLayoutPanel2;
         private CheckBox checkBox19;
@@ -1208,6 +1183,7 @@ namespace CollatorSupervisor
         private TextBox txtIPAdress;
         private Label lblAdress;
         private TextBox txtPort;
+        private PictureBox pictureBox3;
     }
 }
 

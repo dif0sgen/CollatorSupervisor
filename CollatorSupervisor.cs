@@ -334,7 +334,7 @@ namespace CollatorSupervisor
                         CONTROL_WRITE[12] = BoolCollator; //M1012
                         CONTROL_WRITE[13] = BoolRailcart; //M1013
                         CONTROL_WRITE[14] = checkBox3.Checked; //M1014
-                        CONTROL_WRITE[15] = run; //M1015
+                        //CONTROL_WRITE[15] = run; //M1015
                         CONTROL_WRITE[16] = checkBox19.Checked; //M1016
                         CONTROL_WRITE[17] = checkBox18.Checked; //M1017
                         CONTROL_WRITE[18] = checkBox17.Checked; //M1018
@@ -403,9 +403,11 @@ namespace CollatorSupervisor
                             Rilecart_bypass = CONTROL_READ[13]; //M2013
                             Rotation_paper_jam = CONTROL_READ[14]; //M2014
                             bit2 = CONTROL_READ[15]; //M2015
+                            //Rotator_paper_jam = CONTROL_READ[17];
 
-                            
-                                if (CONTROL_READ[0] == true) // GREEN UP
+
+
+                            if (CONTROL_READ[0] == true) // GREEN UP
                             {
                                 this.label9.BackColor = System.Drawing.Color.Green;
                             }
@@ -713,19 +715,18 @@ namespace CollatorSupervisor
             textBox6.Text = "[" + JobID + "] - [" + SchoolName + "]" + @"
 " + "Calendar type: " + CalendarType;
 
-            if (run == true)
-            {
-                RunStat1 = "RUN";
-                RunStat2 = "RUN";
-                RunStat3 = "RUN";
-            }
-            else if (run == false)
-            {
-                RunStat1 = "STOP";
-                RunStat2 = "STOP";
-                RunStat3 = "STOP";
-            }
-                if (Collator_Missing_left == true)
+
+               RunStat1 = "RUN";
+               RunStat2 = "RUN";
+               RunStat3 = "RUN";
+
+            //else if (run == false)
+            //{
+            //    RunStat1 = "STOP";
+            //    RunStat2 = "STOP";
+            //    RunStat3 = "STOP";
+            //}
+            if (Collator_Missing_left == true)
             {
                 Collator1 = "Missing left" + @"
 ";
@@ -767,20 +768,20 @@ namespace CollatorSupervisor
             }
 
 
-            if (run == true && Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true)
+            if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true)
             {
                 textBox14.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
                 textBox14.Text = Collator1 + Collator2 + Collator3 + Collator4;
                 textBox14.ForeColor = System.Drawing.Color.White;
             }
-            if (run == true && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false)
-            {
-                textBox14.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
-                textBox14.Text = Collator4 + @"
-" + RunStat3;
-                textBox14.ForeColor = System.Drawing.Color.Black;
-            }
-            if (run == false && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false)
+//            if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false)
+//            {
+//                textBox14.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
+//                textBox14.Text = Collator4 + @"
+//" + RunStat3;
+//                textBox14.ForeColor = System.Drawing.Color.Black;
+//            }
+            if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false)
             {
                 textBox14.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
                 textBox14.Text = Collator4 + @"
@@ -825,20 +826,20 @@ namespace CollatorSupervisor
                 Rilecart4 = null;
             }
 
-            if (run == true && Rilecart_emergency_stop == true || Rilecart_missing_fin == true || Rilecart_stop == true)
+            if (Rilecart_emergency_stop == true || Rilecart_missing_fin == true || Rilecart_stop == true)
             {
                 textBox11.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
                 textBox11.Text = Rilecart1 + Rilecart2 + Rilecart3 + Rilecart4;
                 textBox11.ForeColor = System.Drawing.Color.White;
             }
-            if (run == true && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
-            {
-                textBox11.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
-                textBox11.Text = Rilecart4 + @"
-" + RunStat1;
-                textBox11.ForeColor = System.Drawing.Color.Black;
-            }
-            if (run == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
+//            if (Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
+//            {
+//                textBox11.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
+//                textBox11.Text = Rilecart4 + @"
+//" + RunStat1;
+//                textBox11.ForeColor = System.Drawing.Color.Black;
+//            }
+            if (Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
             {
                 textBox11.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
                 textBox11.Text = Rilecart4 + @"
@@ -846,23 +847,23 @@ namespace CollatorSupervisor
                 textBox11.ForeColor = System.Drawing.Color.Black;
             }
             /////////////////////////////////////////////////////////////////////////////////////////////////
-            if (run == true && Rotation_paper_jam == true)
+            if (Rotation_paper_jam == true)
             {
-                Rotation = "Rotation paper jam";
+                Rotation = "Turntable paper jam";
                 textBox12.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
                 textBox12.ForeColor = System.Drawing.Color.White;
                 textBox12.Text = Rotation;
 
             }
-            if (run == true && Rotation_paper_jam == false)
-            {
-                Rotation = null;
-                textBox12.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
-                textBox12.ForeColor = System.Drawing.Color.Black;
-                textBox12.Text = Rotation + @"
-" + RunStat2;
-            }
-            if (run == false && Rotation_paper_jam == false)
+//            if (Rotation_paper_jam == false)
+//            {
+//                Rotation = null;
+//                textBox12.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
+//                textBox12.ForeColor = System.Drawing.Color.Black;
+//                textBox12.Text = Rotation + @"
+//" + RunStat2;
+//            }
+            if (Rotation_paper_jam == false)
             {
                 Rotation = null;
                 textBox12.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
@@ -875,12 +876,12 @@ namespace CollatorSupervisor
             {
                 pictureBox3.Image = Resources.Rectangle_146__1_;
             }
-            else if (run == true && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false && Rotation_paper_jam == false)
-            {
-                pictureBox3.Image = Resources.Rectangle_147__2_;
+            //else if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false && Rotation_paper_jam == false)
+            //{
+            //    pictureBox3.Image = Resources.Rectangle_147__2_;
 
-            }
-            else if (run == false && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false && Rotation_paper_jam == false)
+            //}
+            else if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false && Rotation_paper_jam == false)
             {
                 pictureBox3.Image = null;
             }
@@ -1097,20 +1098,8 @@ namespace CollatorSupervisor
 
         }
 
-        private void textBox7_TextChanged_1(object sender, EventArgs e)
-        {
-            JobID = textBox7.Text.ToString();
-        }
 
-        private void textBox8_TextChanged_1(object sender, EventArgs e)
-        {
-            SchoolName = textBox8.Text.ToString();
-        }
 
-        private void textBox10_TextChanged_1(object sender, EventArgs e)
-        {
-            CalendarType = textBox10.Text.ToString();
-        }
 
         private void label27_Click(object sender, EventArgs e)
         {
