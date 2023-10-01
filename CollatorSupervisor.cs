@@ -95,6 +95,7 @@ namespace CollatorSupervisor
         bool Collator_bypass;
         bool Rotation_paper_jam;
         bool Rilecart_run;
+        bool DoubleON;
 
 
         bool bit1;
@@ -405,6 +406,7 @@ namespace CollatorSupervisor
                             Rotation_paper_jam = CONTROL_READ[14]; //M2014
                             bit2 = CONTROL_READ[15]; //M2015
                             Rilecart_run = CONTROL_READ[17]; //M2017
+                            DoubleON = CONTROL_READ[18]; //M2017
 
 
 
@@ -679,6 +681,7 @@ namespace CollatorSupervisor
             string Collator2 = null;
             string Collator3 = null;
             string Collator4 = null;
+            string Collator5 = null;
             string Rilecart1 = null;
             string Rilecart2 = null;
             string Rilecart3 = null;
@@ -795,12 +798,22 @@ namespace CollatorSupervisor
             {
                 Collator4 = null;
             }
+            if (DoubleON == true)
+            {
+                Collator5 = "Double" + @"
+";
+
+            }
+            if (DoubleON == false)
+            {
+                Collator5 = null;
+            }
 
 
-            if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true)
+            if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || DoubleON == true)
             {
                 textBox14.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
-                textBox14.Text = Collator1 + Collator2 + Collator3 + Collator4;
+                textBox14.Text = Collator1 + Collator2 + Collator3 + Collator4 + Collator5;
                 textBox14.ForeColor = System.Drawing.Color.White;
             }
 //            if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false)
@@ -810,7 +823,7 @@ namespace CollatorSupervisor
 //" + RunStat3;
 //                textBox14.ForeColor = System.Drawing.Color.Black;
 //            }
-            if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false)
+            if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && DoubleON == false)
             {
                 textBox14.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
                 textBox14.Text = Collator4 + @"
@@ -901,7 +914,7 @@ namespace CollatorSupervisor
 " + RunStat2;
             }
             /////////////////////////////////////////////////////////////////////////////////////////////////
-            if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || Rilecart_emergency_stop == true || Rilecart_missing_fin == true || Rilecart_stop == true || Rotation_paper_jam == true)
+            if (DoubleON == true || Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || Rilecart_emergency_stop == true || Rilecart_missing_fin == true || Rilecart_stop == true || Rotation_paper_jam == true)
             {
                 pictureBox3.Image = Resources.Rectangle_146__1_;
             }
@@ -910,7 +923,7 @@ namespace CollatorSupervisor
             //    pictureBox3.Image = Resources.Rectangle_147__2_;
 
             //}
-            else if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false && Rotation_paper_jam == false)
+            else if (DoubleON = false && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false && Rotation_paper_jam == false)
             {
                 pictureBox3.Image = null;
             }
