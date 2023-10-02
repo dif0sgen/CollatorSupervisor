@@ -245,7 +245,7 @@ namespace CollatorSupervisor
         }
         private void OnMouseLeaveButton1(object sender, EventArgs e)
         {
-            btnStart.BackColor = System.Drawing.Color.FromArgb(115, 115, 115);
+            btnStart.BackColor = System.Drawing.Color.DimGray;
         }
         /// 
         /// Connect to PLC
@@ -321,21 +321,13 @@ namespace CollatorSupervisor
                         //WORD_WRITE[20] = Release_TMR; //Release_TMR
                         //WORD_WRITE[54] = Hi;
 
-                        CONTROL_WRITE[0] = checkBox1.Checked; //M1000
-                        CONTROL_WRITE[1] = checkBox2.Checked; //M1001
                         CONTROL_WRITE[2] = angle0; //M1002
                         CONTROL_WRITE[3] = angle90; //M1003
                         CONTROL_WRITE[4] = angle180; //M1004
-                        CONTROL_WRITE[5] = checkBox6.Checked; //M1005
-                        CONTROL_WRITE[6] = checkBox7.Checked; //M1006
-                        CONTROL_WRITE[7] = checkBox8.Checked; //M1007
-                        CONTROL_WRITE[8] = checkBox9.Checked; //M1008
-                        CONTROL_WRITE[9] = checkBox10.Checked; //M1009
                         CONTROL_WRITE[10] = BoolUp; //M1010
                         CONTROL_WRITE[11] = BoolDwn; //M1011
                         CONTROL_WRITE[12] = BoolCollator; //M1012
                         CONTROL_WRITE[13] = BoolRailcart; //M1013
-                        CONTROL_WRITE[14] = checkBox3.Checked; //M1014
                         //CONTROL_WRITE[15] = run; //M1015
                         CONTROL_WRITE[16] = checkBox19.Checked; //M1016
                         CONTROL_WRITE[17] = checkBox18.Checked; //M1017
@@ -407,225 +399,7 @@ namespace CollatorSupervisor
                             bit2 = CONTROL_READ[15]; //M2015
                             Rilecart_run = CONTROL_READ[17]; //M2017
                             DoubleON = CONTROL_READ[18]; //M2017
-
-
-
-                            if (CONTROL_READ[0] == true) // GREEN UP
-                            {
-                                this.label9.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[0] == false) // STANDART UP
-                            {
-                                this.label9.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[1] == true) // GREEN DOWN
-                            {
-                                this.label10.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[1] == false) // STANDART DOWN
-                            {
-                                this.label10.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[2] == true) // GREEN DOWN
-                            {
-                                this.label17.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[2] == false) // STANDART DOWN
-                            {
-                                this.label17.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[3] == true) // GREEN DOWN
-                            {
-                                this.label18.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[3] == false) // STANDART DOWN
-                            {
-                                this.label18.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[4] == true) // GREEN DOWN
-                            {
-                                this.label24.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[4] == false) // STANDART DOWN
-                            {
-                                this.label24.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[5] == true) // GREEN DOWN
-                            {
-                                this.label23.BackColor = System.Drawing.Color.Green;
-                                //flowLayoutPanel1.BackgroundImage = Resources.Group_111;
-
-                            }
-                            else if (CONTROL_READ[5] == false) // STANDART DOWN
-                            {
-                                this.label23.BackColor = System.Drawing.Color.White;
-                                //flowLayoutPanel1.BackgroundImage = null;
-                            }
-                            if (CONTROL_READ[6] == true) // GREEN DOWN
-                            {
-                                this.label20.BackColor = System.Drawing.Color.Green;
-                                //flowLayoutPanel3.BackgroundImage = Resources.Group_112;
-                            }
-                            else if (CONTROL_READ[6] == false) // STANDART DOWN
-                            {
-                                this.label20.BackColor = System.Drawing.Color.White;
-                                //flowLayoutPanel3.BackgroundImage = null;
-                            }
-                            if (CONTROL_READ[7] == true) // GREEN DOWN
-                            {
-                                this.label19.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[7] == false) // STANDART DOWN
-                            {
-                                this.label19.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[8] == true) // GREEN DOWN
-                            {
-                                this.label32.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[8] == false) // STANDART DOWN
-                            {
-                                this.label32.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[9] == true) // GREEN DOWN
-                            {
-                                this.label31.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[9] == false) // STANDART DOWN
-                            {
-                                this.label31.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[10] == true) // GREEN DOWN
-                            {
-                                this.label12.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[10] == false) // STANDART DOWN
-                            {
-                                this.label12.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[11] == true) // GREEN DOWN
-                            {
-                                this.label11.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[11] == false) // STANDART DOWN
-                            {
-                                this.label11.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[12] == true) // GREEN DOWN
-                            {
-                                this.label14.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[12] == false) // STANDART DOWN
-                            {
-                                this.label14.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[13] == true) // GREEN DOWN
-                            {
-                                this.label13.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[13] == false) // STANDART DOWN
-                            {
-                                this.label13.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[14] == true) // GREEN DOWN
-                            {
-                                this.label47.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[14] == false) // STANDART DOWN
-                            {
-                                this.label47.BackColor = System.Drawing.Color.White;
-                            }
-                            if (CONTROL_READ[15] == true) // GREEN DOWN
-                            {
-                                this.label48.BackColor = System.Drawing.Color.Green;
-                            }
-                            else if (CONTROL_READ[15] == false) // STANDART DOWN
-                            {
-                                this.label48.BackColor = System.Drawing.Color.White;
-                            }
-                            //if (START == true & HOME == false) // GREEN START, STANDART STOP, STANDART HOME
-                            //{
-                            //    this.button1.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_23;
-                            //    this.button2.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_22;
-                            //    this.button3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_26;
-                            //}
-                            //if (START == false) // RED STOP, STANDART START,STANDART HOME
-                            //{
-                            //    this.button1.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_21;
-                            //    this.button2.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_24;
-                            //    this.button3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_26;
-                            //}
-                            //if (HOME == true & START == false) // GREEN HOME, STANDART STOP, STANDART START
-                            //{
-                            //    this.button2.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_22;
-                            //    this.button3.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_27;
-                            //    this.button1.Image = global::TCP_LISTENER_Delta.Properties.Resources.Group_21;
-                            //}
-                            //if (InvokeRequired)
-                            //{
-                            //    Invoke(new Action(() =>
-                            //    {
-                            //        if (tabControl1.Controls[0] == tabControl1.SelectedTab) // AUTO MODE ON
-                            //            CONTROL[4] = true;
-                            //        if (tabControl1.Controls[1] == tabControl1.SelectedTab) // AUTO MODE OFF
-                            //            CONTROL[4] = false;
-                            //        if (tabControl1.Controls[2] == tabControl1.SelectedTab) // AUTO MODE OFF
-                            //            CONTROL[4] = false;
-                            //    }));
-                            //}
-                            //else
-                            //{
-                            //    if (tabControl1.Controls[0] == tabControl1.SelectedTab) // AUTO MODE ON
-                            //        CONTROL[4] = true;
-                            //    if (tabControl1.Controls[1] == tabControl1.SelectedTab) // AUTO MODE OFF
-                            //        CONTROL[4] = false;
-                            //    if (tabControl1.Controls[2] == tabControl1.SelectedTab) // AUTO MODE OFF
-                            //        CONTROL[4] = false;
-                            //}
-                            //if (Solenoid == true) // GREEN RIGHT
-                            //{
-                            //    this.label8.BackColor = System.Drawing.Color.Green;
-                            //}
-                            //else if (Solenoid == false) // STANDART RIGHT
-                            //{
-                            //    this.label8.BackColor = System.Drawing.Color.White;
-                            //}
-                            //if (UpLim == true) // GREEN RIGHT
-                            //{
-                            //    this.label11.BackColor = System.Drawing.Color.Green;
-                            //}
-                            //else if (UpLim == false) // STANDART RIGHT
-                            //{
-                            //    this.label11.BackColor = System.Drawing.Color.White;
-                            //}
-                            //if (DownLim == true) // GREEN RIGHT
-                            //{
-                            //    this.label12.BackColor = System.Drawing.Color.Green;
-                            //}
-                            //else if (DownLim == false) // STANDART RIGHT
-                            //{
-                            //    this.label12.BackColor = System.Drawing.Color.White;
-                            //}
-                            //if (PapLim == true) // GREEN RIGHT
-                            //{
-                            //    this.label14.BackColor = System.Drawing.Color.Green;
-                            //    this.label15.BackColor = System.Drawing.Color.Green;
-                            //}
-                            //else if (PapLim == false) // STANDART RIGHT
-                            //{
-                            //    this.label14.BackColor = System.Drawing.Color.White;
-                            //    this.label15.BackColor = System.Drawing.Color.White;
-                            //}
-                            //if (PresLim == true) // GREEN RIGHT
-                            //{
-                            //    this.label13.BackColor = System.Drawing.Color.Green;
-                            //    this.label16.BackColor = System.Drawing.Color.Green;
-                            //}
-                            //else if (PresLim == false) // STANDART RIGHT
-                            //{
-                            //    this.label13.BackColor = System.Drawing.Color.White;
-                            //    this.label16.BackColor = System.Drawing.Color.White;
-                            //}
+                            
                         }
                         else if (check1 == false)
                         {
@@ -734,7 +508,7 @@ namespace CollatorSupervisor
             {
                 Collator1 = "Missing left" + @"
 ";
-                flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+                tableLayoutPanel6.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
                 label1.ForeColor = System.Drawing.Color.White;
                 label2.ForeColor = System.Drawing.Color.White;
                 label3.ForeColor = System.Drawing.Color.White;
@@ -747,7 +521,7 @@ namespace CollatorSupervisor
             if (Collator_Missing_left == false)
             {
                 Collator1 = null;
-                flowLayoutPanel1.BackColor = Color.White;
+                tableLayoutPanel6.BackColor = Color.White;
                 label1.ForeColor = System.Drawing.Color.Gray;
                 label2.ForeColor = System.Drawing.Color.Gray;
                 label3.ForeColor = System.Drawing.Color.Gray;
@@ -761,7 +535,7 @@ namespace CollatorSupervisor
             {
                 Collator2 = "Missing right" + @"
 ";
-                flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+                tableLayoutPanel7.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
                 label26.ForeColor = System.Drawing.Color.White;
                 label30.ForeColor = System.Drawing.Color.White;
                 label33.ForeColor = System.Drawing.Color.White;
@@ -772,7 +546,7 @@ namespace CollatorSupervisor
             if (Collator_Missing_right == false)
             {
                 Collator2 = null; 
-                flowLayoutPanel3.BackColor = Color.White;
+                tableLayoutPanel7.BackColor = Color.White;
                 label26.ForeColor = System.Drawing.Color.Gray;
                 label30.ForeColor = System.Drawing.Color.Gray;
                 label33.ForeColor = System.Drawing.Color.Gray;
@@ -916,7 +690,7 @@ namespace CollatorSupervisor
             /////////////////////////////////////////////////////////////////////////////////////////////////
             if (DoubleON == true || Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || Rilecart_emergency_stop == true || Rilecart_missing_fin == true || Rilecart_stop == true || Rotation_paper_jam == true)
             {
-                pictureBox3.Image = Resources.Rectangle_146__1_;
+                //tabPage1.BackgroundImage = Resources.Rectangle_146__1_;
             }
             //else if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false && Rotation_paper_jam == false)
             //{
@@ -925,7 +699,7 @@ namespace CollatorSupervisor
             //}
             else if (DoubleON = false && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false && Rotation_paper_jam == false)
             {
-                pictureBox3.Image = null;
+                //tabPage1.BackgroundImage = null;
             }
 
             //                        textBox30.Text = "Pos: " + "1" + @"
