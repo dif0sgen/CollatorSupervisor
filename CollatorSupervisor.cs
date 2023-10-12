@@ -96,6 +96,8 @@ namespace CollatorSupervisor
         bool Rotation_paper_jam;
         bool Rilecart_run;
         bool DoubleON;
+        bool scan = false;
+        bool scan_local;
 
 
         bool bit1;
@@ -129,11 +131,12 @@ namespace CollatorSupervisor
         private string[] imageList;
         private Int32[] WORD_READ = new Int32[56];
         private Int32[] WORD_WRITE = new Int32[56];
-        private bool[] CONTROL_WRITE = new bool[25];
-        private bool[] CONTROL_READ = new bool[25];
+        private bool[] CONTROL_WRITE = new bool[26];
+        private bool[] CONTROL_READ = new bool[39];
         private string[] files;
 
         private bool check1 = false;
+        private bool check2 = false;
 
         string sub = "";
         string tesser;
@@ -145,8 +148,6 @@ namespace CollatorSupervisor
         public Form_Listener()
         {
             this.InitializeComponent();
-
-
 
             thread1 = new Thread(() => ReadMDBS("MDBS"));
             thread2 = new Thread(() => WriteMDBS("WRITE"));
@@ -261,7 +262,6 @@ namespace CollatorSupervisor
 
                     modbus.Connect();
                     check1 = true;
-                    
                 }
                 catch (Exception ex)
                 {
@@ -338,10 +338,17 @@ namespace CollatorSupervisor
                         CONTROL_WRITE[22] = checkBox13.Checked; //M1022
                         CONTROL_WRITE[23] = checkBox5.Checked; //M1023
                         CONTROL_WRITE[24] = checkBox4.Checked; //M1024
+                        CONTROL_WRITE[25] = scan;
 
                         try
                         {
+                            if (check2 == true)
+                            {
+                                modbus.WriteSingleCoil(2019, false);
+                                check2 = false;
+                            }
                             modbus.WriteMultipleCoils(1000, CONTROL_WRITE); // WRITE ALL BITS
+                            //CONTROL_WRITE[25] = false;
                         }
 
                         catch (Exception ex)
@@ -361,7 +368,7 @@ namespace CollatorSupervisor
                         {
                             try
                             {
-                                //WORD_READ = modbus.ReadHoldingRegisters(0, 56); //READ ALL WORDS
+                                //WORD_READ = modbus.ReadHoldingRegisters(0, 1); //READ ALL WORDS
                                 //posXtab1 = EasyModbus.ModbusClient.ConvertRegistersToInt(modbus.ReadHoldingRegisters(24, 2));
                                 //posYtab1 = EasyModbus.ModbusClient.ConvertRegistersToInt(modbus.ReadHoldingRegisters(22, 2));
                             }
@@ -374,7 +381,7 @@ namespace CollatorSupervisor
                             //Thread.Sleep(milliseconds);
                             try
                             {
-                                CONTROL_READ = modbus.ReadCoils(2000, 25);
+                                CONTROL_READ = modbus.ReadCoils(2000, 39);
                             }
                             
                             catch (Exception ex)
@@ -398,8 +405,7 @@ namespace CollatorSupervisor
                             Rotation_paper_jam = CONTROL_READ[14]; //M2014
                             bit2 = CONTROL_READ[15]; //M2015
                             Rilecart_run = CONTROL_READ[17]; //M2017
-                            DoubleON = CONTROL_READ[18]; //M2017
-                            
+                            DoubleON = CONTROL_READ[18]; //M2018
                         }
                         else if (check1 == false)
                         {
@@ -424,19 +430,9 @@ namespace CollatorSupervisor
         /// 
         void WriteMDBS(string name)
         {
-            //while (true)
-            //{
-            //    if (InvokeRequired)
-            //    {
-            //        Invoke(new MethodInvoker(InterfaceUpdate));
-            //    }
-            //    else
-            //    {
-            //        InterfaceUpdate();
-            //    }
-            //}
 
         }
+        
         private void InterfaceUpdate(object sender, EventArgs e)
 
         //void InterfaceUpdate()
@@ -450,6 +446,28 @@ namespace CollatorSupervisor
             {
                 this.flowLayoutPanel2.Visible = false;
                 this.flowLayoutPanel2.Enabled = false;
+            }
+            if (CONTROL_READ[19] == true && scan == true)
+            {
+                tbResult.Items.Add(" ");
+                tbResult.Items.Add("                      SCAN           ");
+                tbResult.Items.Add(" ");
+                tbResult.Items.Add("Front - " + CONTROL_READ[20]);
+                tbResult.Items.Add("January - " + CONTROL_READ[21]);
+                tbResult.Items.Add("February - " + CONTROL_READ[22]);
+                tbResult.Items.Add("March - " + CONTROL_READ[23]);
+                tbResult.Items.Add("April - " + CONTROL_READ[24]);
+                tbResult.Items.Add("May - " + CONTROL_READ[25]);
+                tbResult.Items.Add("June - " + CONTROL_READ[26]);
+                tbResult.Items.Add("July - " + CONTROL_READ[27]);
+                tbResult.Items.Add("August - " + CONTROL_READ[28]);
+                tbResult.Items.Add("September - " + CONTROL_READ[29]);
+                tbResult.Items.Add("October - " + CONTROL_READ[30]);
+                tbResult.Items.Add("November - " + CONTROL_READ[31]);
+                tbResult.Items.Add("December - " + CONTROL_READ[32]);
+                tbResult.Items.Add("Rear - " + CONTROL_READ[33]);
+                check2 = true;
+                scan = false;
             }
             string Collator1 = null;
             string Collator2 = null;
@@ -988,6 +1006,16 @@ namespace CollatorSupervisor
                 angle90 = false;
                 angle180 = true;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tbResult.Items.Clear();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            scan = true; 
         }
     }
 }

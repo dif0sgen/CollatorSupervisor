@@ -123,6 +123,9 @@ namespace CollatorSupervisor
             this.btnStart = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbResult = new System.Windows.Forms.ListBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             Speed = new System.Windows.Forms.Label();
             label27 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -401,6 +404,9 @@ namespace CollatorSupervisor
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.tbResult);
             this.tabPage1.Controls.Add(this.flowLayoutPanel2);
             this.tabPage1.Controls.Add(this.tableLayoutPanel3);
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
@@ -821,6 +827,26 @@ namespace CollatorSupervisor
             resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
+            // tbResult
+            // 
+            this.tbResult.FormattingEnabled = true;
+            resources.ApplyResources(this.tbResult, "tbResult");
+            this.tbResult.Name = "tbResult";
+            // 
+            // button3
+            // 
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.Name = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form_Listener
             // 
             resources.ApplyResources(this, "$this");
@@ -957,6 +983,9 @@ namespace CollatorSupervisor
         private CheckBox checkBox13;
         private CheckBox checkBox5;
         private CheckBox checkBox4;
+        private ListBox tbResult;
+        private Button button3;
+        private Button button1;
     }
 }
 
