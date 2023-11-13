@@ -95,6 +95,8 @@ namespace CollatorSupervisor
         bool Collator_bypass;
         bool Rotation_paper_jam;
         bool Rilecart_run;
+        bool CollatorRUN;
+        bool TurntableRUN;
         bool DoubleON;
         bool scan = false;
         bool scan_local;
@@ -132,7 +134,7 @@ namespace CollatorSupervisor
         private Int32[] WORD_READ = new Int32[56];
         private Int32[] WORD_WRITE = new Int32[56];
         private bool[] CONTROL_WRITE = new bool[26];
-        private bool[] CONTROL_READ = new bool[39];
+        private bool[] CONTROL_READ = new bool[41];
         private string[] files;
 
         private bool check1 = false;
@@ -381,7 +383,7 @@ namespace CollatorSupervisor
                             //Thread.Sleep(milliseconds);
                             try
                             {
-                                CONTROL_READ = modbus.ReadCoils(2000, 39);
+                                CONTROL_READ = modbus.ReadCoils(2000, 41);
                             }
                             
                             catch (Exception ex)
@@ -406,7 +408,10 @@ namespace CollatorSupervisor
                             bit2 = CONTROL_READ[15]; //M2015
                             Rilecart_run = CONTROL_READ[17]; //M2017
                             DoubleON = CONTROL_READ[18]; //M2018
-                        }
+							CollatorRUN = CONTROL_READ[19]; //M2019
+							TurntableRUN = CONTROL_READ[20]; //M2020
+
+						}
                         else if (check1 == false)
                         {
                              modbus.Disconnect();
@@ -601,29 +606,28 @@ namespace CollatorSupervisor
                 Collator5 = null;
             }
 
-
-            if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || DoubleON == true)
-            {
-                textBox14.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
-                textBox14.Text = Collator1 + Collator2 + Collator3 + Collator4 + Collator5;
-                textBox14.ForeColor = System.Drawing.Color.White;
-            }
-//            if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false)
-//            {
-//                textBox14.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
-//                textBox14.Text = Collator4 + @"
-//" + RunStat3;
-//                textBox14.ForeColor = System.Drawing.Color.Black;
-//            }
-            if (Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && DoubleON == false)
-            {
-                textBox14.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
-                textBox14.Text = Collator4 + @"
+			if (Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || DoubleON == true)
+			{
+				textBox14.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+				textBox14.Text = Collator1 + Collator2 + Collator3 + Collator4 + Collator5;
+				textBox14.ForeColor = System.Drawing.Color.White;
+			}
+			if (CollatorRUN == true && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && DoubleON == false)  //GREEN
+			{
+				textBox14.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
+				textBox14.Text = Collator4 + @"
+" + "COLLATOR RUNING";
+				textBox14.ForeColor = System.Drawing.Color.Black;
+			}
+			if (CollatorRUN == false && Collator_Paper_jam == false && Collator_Missing_right == false && Collator_Missing_left == false && DoubleON == false)  //WHITE
+			{
+				textBox14.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
+				textBox14.Text = Collator4 + @"
 " + RunStat3;
-                textBox14.ForeColor = System.Drawing.Color.Black;
-            }
-            ////////////////////////////////////////////////////
-            if (Rilecart_emergency_stop == true)
+				textBox14.ForeColor = System.Drawing.Color.Black;
+			}
+			////////////////////////////////////////////////////
+			if (Rilecart_emergency_stop == true)
             {
                 Rilecart1 = "Emergency stop" + @"
 ";
@@ -660,20 +664,20 @@ namespace CollatorSupervisor
                 Rilecart4 = null;
             }
 
-            if (Rilecart_emergency_stop == true || Rilecart_missing_fin == true || Rilecart_stop == true)
+            if (Rilecart_emergency_stop == true || Rilecart_missing_fin == true || Rilecart_stop == true) //RED
             {
                 textBox11.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
                 textBox11.Text = Rilecart1 + Rilecart2 + Rilecart3 + Rilecart4;
                 textBox11.ForeColor = System.Drawing.Color.White;
             }
-            if (Rilecart_run == true && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
+            if (Rilecart_run == true && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)  //GREEN
             {
                 textBox11.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
                 textBox11.Text = Rilecart4 + @"
-" + "RILECART RUN";
+" + "RILECART RUNING";
                 textBox11.ForeColor = System.Drawing.Color.Black;
             }
-            if (Rilecart_run == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)
+            if (Rilecart_run == false && Rilecart_emergency_stop == false && Rilecart_missing_fin == false && Rilecart_stop == false)  //WHITE
             {
                 textBox11.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
                 textBox11.Text = Rilecart4 + @"
@@ -684,29 +688,34 @@ namespace CollatorSupervisor
             if (Rotation_paper_jam == true)
             {
                 Rotation = "Turntable paper jam";
-                textBox12.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
-                textBox12.ForeColor = System.Drawing.Color.White;
-                textBox12.Text = Rotation;
-
             }
-//            if (Rotation_paper_jam == false)
-//            {
-//                Rotation = null;
-//                textBox12.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
-//                textBox12.ForeColor = System.Drawing.Color.Black;
-//                textBox12.Text = Rotation + @"
-//" + RunStat2;
-//            }
             if (Rotation_paper_jam == false)
             {
                 Rotation = null;
-                textBox12.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
-                textBox12.ForeColor = System.Drawing.Color.Black;
-                textBox12.Text = Rotation + @"
-" + RunStat2;
             }
-            /////////////////////////////////////////////////////////////////////////////////////////////////
-            if (DoubleON == true || Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || Rilecart_emergency_stop == true || Rilecart_missing_fin == true || Rilecart_stop == true || Rotation_paper_jam == true)
+
+			if (Rotation_paper_jam == true) //RED
+			{
+				textBox12.BackColor = System.Drawing.Color.FromArgb(218, 67, 60);
+				textBox12.Text = Rotation;
+				textBox12.ForeColor = System.Drawing.Color.White;
+			}
+			if (TurntableRUN == true && Rotation_paper_jam == false)  //GREEN
+			{
+				textBox12.BackColor = System.Drawing.Color.FromArgb(45, 232, 14);
+				textBox12.Text = Rotation + @"
+" + "TURNTABLE RUNING";
+				textBox12.ForeColor = System.Drawing.Color.Black;
+			}
+			if (TurntableRUN == false && Rotation_paper_jam == false )  //WHITE
+			{
+				textBox12.BackColor = System.Drawing.Color.FromArgb(218, 218, 218);
+				textBox12.Text = Rilecart4 + @"
+" + RunStat2;
+				textBox12.ForeColor = System.Drawing.Color.Black;
+			}
+			/////////////////////////////////////////////////////////////////////////////////////////////////
+			if (DoubleON == true || Collator_Paper_jam == true || Collator_Missing_right == true || Collator_Missing_left == true || Rilecart_emergency_stop == true || Rilecart_missing_fin == true || Rilecart_stop == true || Rotation_paper_jam == true)
             {
                 //tabPage1.BackgroundImage = Resources.Rectangle_146__1_;
             }

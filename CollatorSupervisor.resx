@@ -1549,7 +1549,7 @@
     <value>219</value>
   </data>
   <data name="label36.Text" xml:space="preserve">
-    <value>CHICKER</value>
+    <value>STICKERS</value>
   </data>
   <data name="label36.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopCenter</value>
@@ -1585,8 +1585,8 @@
     <value>218</value>
   </data>
   <data name="label35.Text" xml:space="preserve">
-    <value>CALENDAR
-COVER</value>
+    <value>KIDS
+ART</value>
   </data>
   <data name="label35.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopCenter</value>
@@ -2698,7 +2698,7 @@ COVER</value>
   <data name="tableLayoutPanel2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAErgAAATrCAYAAADY/AWHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAA/7JJREFUeF7s/U1u3dq2oGknLm4hKjIQhchCCLiFqMTemYUvgEwoo5AJRGI7G6Do
+        DQAACw0B7QfALAAA/7JJREFUeF7s/U1u3dq2oGknLm4hKjIQhchCCLiFqMTemYUvgEwoo5AJRGI7G6Do
         gDrg3QF1wK7r0G6AOuAWqANqQXTG+jgW6RM2OWivn8kpTup5gLegs2yuxW2eYYoip/8XAAAAAAAAAABg
         5mWnAQAAAAAAAAAAAAAAAAAAAAAA8Epe/sf/+B+7KvZp2DUAAAAAAAAAAAAAAAAAAAAAAABeQ7pIVMvF
         Pg27BgAAAAAAAAAAAAAAAAAAAAAAwGtIF4lqudinYdcAAAAAAAAAAAAAaMH3G0D3FsBryWbSHgJ4LdlM
